@@ -1,0 +1,40 @@
+/*
+ * Colors
+ */
+
+/* Blue Dark: #2F363F */
+/* Light Sea Green: #3AA593 */
+/* Pattens Blue: #C0D6DF */
+/* Tea Blue: #0B3948 */
+
+/*
+ * Test Grid
+ */
+
+/*div{
+	border: 1px solid #000;
+}*/
+
+.menu-principal{
+	height: 60px;
+	background-color: #2F363F;
+}
+
+.menu-esquerdo{
+	height: 550px;
+	background-color: #fff;
+}
+
+.menu-perfil{
+	margin: 0 auto;
+	text-align: center;
+	background-color: #2F363F;
+}
+
+.menu-opcoes{
+	height: 400px;
+}
+
+.mg-tp-5{
+	margin-top: 5px !important;
+}
