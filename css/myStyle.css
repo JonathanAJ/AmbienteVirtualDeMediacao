@@ -32,9 +32,17 @@
 }
 
 .menu-opcoes{
-	height: 400px;
+	background-color: #3AA593;
 }
 
 .mg-tp-5{
 	margin-top: 5px !important;
+}
+
+.centro{
+	text-align: center;
+}
+
+img.ui.medium.image.centered {
+    margin-top: -15px;
 }
