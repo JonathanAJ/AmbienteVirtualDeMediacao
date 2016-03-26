@@ -5,7 +5,9 @@
 /* Blue Dark: #2F363F */
 /* Light Sea Green: #3AA593 */
 /* Pattens Blue: #C0D6DF */
-/* Tea Blue: #0B3948 */
+/* Tea Blue: #0B3948
+   Bay of many: #041C3F
+ */
 
 /*
  * Test Grid
@@ -14,6 +16,14 @@
 /*div{
 	border: 1px solid #000;
 }*/
+
+html, body{
+	background-color: #C0D6DF;
+}
+
+.description {
+    margin-top: -2px !important;
+}
 
 .menu-principal{
 	height: 60px;
@@ -28,7 +38,7 @@
 .menu-perfil{
 	margin: 0 auto;
 	text-align: center;
-	background-color: #2F363F;
+	background-color: #041C3F;
 }
 
 .menu-opcoes{
@@ -37,6 +47,10 @@
 
 .mg-tp-5{
 	margin-top: 5px !important;
+}
+
+.color-white{
+	color: #666 !important;
 }
 
 .centro{
