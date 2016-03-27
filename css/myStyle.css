@@ -30,6 +30,15 @@ html, body{
 	background-color: #2F363F;
 }
 
+.menu-principal .logo-acao{
+	position: absolute;
+	left: 50%;
+	margin-top: 15px;
+	width: 120px;
+	cursor: pointer;
+	z-index: 99;
+}
+
 .menu-esquerdo{
 	height: 550px;
 	background-color: #fff;
@@ -49,6 +58,17 @@ html, body{
 	margin-top: 5px !important;
 }
 
+.mg-tp-15-menos{
+	margin-top: -15px;
+}
+
+.mg-tp-25{
+	margin-top: 25px !important;
+}
+.mg-tp-30{
+	margin-top: 30px !important;
+}
+
 .color-white{
 	color: #666 !important;
 }
@@ -58,5 +78,5 @@ html, body{
 }
 
 img.ui.medium.image.centered {
-    margin-top: -15px;
+    margin-top: -5px;
 }

@@ -7,8 +7,21 @@
 	<link rel="stylesheet" type="text/css" href="css/myStyle.css">
 </head>
 <body>
-	<div class="ui grid menu-principal">
-		
+	<div class="ui grid conteiner menu-principal">
+		<div class="ui grid container">
+			<div class="two wide right floated column">
+				<div class="ui red floating labeled icon dropdown button mg-tp-5">
+				  <i class="sidebar icon"></i>
+				  <span class="text">Opções</span>
+				  <div class="menu">
+					<a class="item" href="#link1"><i class="home icon"></i> Home</a>
+					<a class="item" href="#link2"><i class="users icon"></i> Browse</a>
+					<a class="item" href="#link3"><i class="search icon"></i> Search</a>
+				  </div>
+				</div>
+			</div>
+			<img class="logo-acao" src="img/logo.png">
+		</div>
 	</div>
 	<div class="ui grid container">
 		<div class="two wide column">
@@ -20,50 +33,26 @@
 						<div class="ui huge star rating mg-tp-5"
 							 data-rating="5"
 							 data-max-rating="5"></div>
-						<div class="ui small blue label mg-tp-5">
+						<div class="ui small gray label mg-tp-5">
 						  	Reputação
 						  	<div class="detail">214</div>
 						</div>
 					</div>
 				</div>
 				<div class="ui row menu-opcoes">
-					<div class="column centro">
-						<div class="ui tiny vertical labeled icon buttons">
-							<button class='ui green button left'>
-								<i class='icon plus'></i>
-								Novo Post
-							</button>
-							<button class='ui green button'>
-								<i class='icon book'></i>
-								Meus Posts
-							</button>
-							<button class='ui green button'>
-								<i class='icon sitemap'></i>
-								Posts Núcleo
-							</button>
-							<button class='ui green button'>
-								<i class='icon empty star'></i>
-								Favoritos
-							</button>
+					<div class="column">
+						<div class="ui teal tiny vertical buttons">
+						  <button class="ui button"><i class='icon plus'></i> Novo Post</button>
+						  <button class="ui button"><i class='icon book'></i> Meus Posts</button>
+						  <button class="ui button"><i class='icon sitemap'></i> Núcleo</button>
+						  <button class="ui button"><i class='icon empty star'></i> Favoritos</button>
 						</div>
 						<div class="ui divider"></div>
-						<div class="ui tiny vertical labeled icon buttons">
-							<button class='ui green button'>
-								<i class='icon comments'></i>
-								Mensagens
-							</button>
-							<button class='ui green button'>
-								<i class='icon trash'></i>
-								Excluídos
-							</button>
-							<button class='ui green button'>
-								<i class='icon users'></i>
-								Amigos
-							</button>
-							<button class='ui green button'>
-								<i class='icon cubes'></i>
-								Mapa Gráfico
-							</button>
+						<div class="ui teal tiny vertical buttons">
+						  <button class="ui button"><i class='icon comments'></i> Mensagens</button>
+						  <button class="ui button"><i class='icon trash'></i> Excluídos</button>
+						  <button class="ui button"><i class='icon users'></i> Amigos</button>
+						  <button class="ui button"><i class='icon cubes'></i> Geomapa</button>
 						</div>
 					</div>
 				</div>
@@ -73,12 +62,15 @@
 		<div class="thirteen wide column">
 			<div class="ui grid">
 				<div class="row">
-					<div class="sixteen wide column">
-						<h1>ELIZABETH AQUINO</h1>
-						<p>Mediadora, Fortaleza-CE</p>
-						<div class="ui form">
-							<div class="field">
-								<input type="text" name="busca" placeholder="Pesquise aqui os posts do sistema">
+					<div class="sixteen wide column mg-tp-25">
+						<h2>ELIZABETH AQUINO</h2>
+						<p class="mg-tp-15-menos">Mediadora, Fortaleza-CE <i class='icon user teal'></i></p>
+						<div class="ui form mg-tp-30">
+							<div class="ui action input fluid">
+							  <input type="text" name="busca" placeholder="Pesquise aqui os posts do sistema">
+							  <button class="ui teal icon button">
+							    <i class="search icon"></i>
+							  </button>
 							</div>
 						</div>	
 					</div>
