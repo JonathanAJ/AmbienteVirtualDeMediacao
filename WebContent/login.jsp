@@ -1,3 +1,5 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,12 +13,12 @@
 		<div class="ui grid container">
 		</div>
 	</div>
-	<logo>
+	<div class="logo">
 		<div class="bg-logo">	
 			<img class="logo-login" src="img/logo.png">
 		</div>
 		<h3 class="nome-logo">Ambiente Virtual de Mediação e Conciliação</h3>
-	</logo>
+	</div>
 	<div class="header-autentica">
 		<div class="login">
 			<h4>Login</h4>
