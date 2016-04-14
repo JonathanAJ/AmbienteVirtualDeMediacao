@@ -1,0 +1,151 @@
+/*
+ * Colors
+ */
+
+/* Blue Dark: #2F363F */
+/* Light Sea Green: #3AA593 */
+/* Pattens Blue: #C0D6DF */
+/* Tea Blue: #0B3948
+   Bay of many: #041C3F
+ */
+
+/*
+ * Test Grid
+ */
+
+/*div{
+	border: 1px solid #000;
+}*/
+
+html, body{
+	background-color: #C0D6DF;
+}
+
+.description {
+    margin-top: -2px !important;
+}
+
+.menu-principal{
+	height: 60px;
+	background-color: #2F363F;
+}
+
+.menu-principal-login{
+	height: 140px;
+	background-color: #2F363F;
+}
+
+.menu-principal .logo-acao{
+	position: absolute;
+	left: 50%;
+	margin-top: 15px;
+	width: 120px;
+	cursor: pointer;
+	z-index: 99;
+}
+
+.bg-logo{
+	margin: -55px auto 0 auto;
+	padding-top: 4px;
+	background-color: #C0D6DF;
+	width: 127px;
+	height: 127px;
+	border-radius: 100%;
+}
+
+.logo-login{
+	margin: 0 auto;
+	display: block;
+	cursor: pointer;
+	z-index: 99;
+}
+
+.nome-logo{
+	margin: 0 auto;
+	display: block;
+	width: 198px;
+	text-align: center;
+
+}
+
+.header-autentica{
+	margin: 20px auto 0 auto;
+	max-width: 450px;
+	background-color: #3AA593;
+	cursor: pointer;
+	color: #FFF;
+	text-align: center;
+}
+
+.header-autentica .login{
+	float: left;
+	padding: 10px 15px;
+	width: 50%;
+	background-color: #3AA593;
+}
+
+.header-autentica .cadastro{
+	float: left;
+	padding: 10px 15px;
+	width: 50%;
+	background-color: #2F363F;
+}
+
+.autenticacao{
+	margin: 0 auto;
+	padding: 60px 20px 25px 20px;
+	max-width: 450px;
+}
+
+.color-login{
+	background-color: #3AA593;
+}
+.color-cadastro{
+	background-color: #2F363F;
+}
+
+.content-autentica .content2{
+	display: none;
+}
+
+.menu-esquerdo{
+	height: 550px;
+	background-color: #fff;
+}
+
+.menu-perfil{
+	margin: 0 auto;
+	text-align: center;
+	background-color: #041C3F;
+}
+
+.menu-opcoes{
+	background-color: #3AA593;
+}
+
+.mg-tp-5{
+	margin-top: 5px !important;
+}
+
+.mg-tp-15-menos{
+	margin-top: -15px;
+}
+
+.mg-tp-25{
+	margin-top: 25px !important;
+}
+.mg-tp-30{
+	margin-top: 30px !important;
+}
+
+.color-white{
+	color: #666 !important;
+}
+
+.centro{
+	text-align: center;
+}
+
+img.ui.medium.image.centered {
+    margin-top: -5px;
+}
