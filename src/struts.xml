@@ -5,12 +5,19 @@
  
 <struts>
   <constant name="struts.devMode" value="true" />
- 
-  <package name="basicstruts2" extends="struts-default">
-    <action name="Login" class="com.mediacaovirtual.controller.LoginAction" method="logar">
-    	<result name="sucesso">index.jsp</result>
-    	<result name="erro">login.jsp?erro=true</result>
-    </action>
-  </package>
+  <constant name="struts.ui.theme" value="simple" />
   
+  <package name="basicstruts2" extends="struts-default">
+  
+    <action name="logarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="logar">
+    	<result name="sucesso">/index.jsp</result>
+    	<result name="erro">/login.jsp?erro=true</result>
+    </action>
+    
+    <action name="cadastrarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="cadastrar">
+    	<result name="sucesso">/login.jsp?sucesso=true</result>
+    	<result name="erro">/login.jsp?erro=true</result>
+    </action>
+    
+  </package>
 </struts>

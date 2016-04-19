@@ -29,44 +29,44 @@
 	</div>
 	<div class="autenticacao color-login">
 		<div class="content-autentica">
-			<form class="ui large form content1">
+			<s:form action="logarLoginAction" class="ui large form content1">
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="user icon"></i>
-		            <input type="text" name="cpf" placeholder="CPF">
+		            <s:textfield name="usuario.cpfLogin" placeholder="CPF" />
 		          </div>
 		        </div>
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="lock icon"></i>
-		            <input type="password" name="senha" placeholder="Senha">
+		            <s:password name="usuario.senha" placeholder="Senha" />
 		          </div>
 		        </div>
-		        <div class="ui inverted fluid submit button">Autenticar</div>
+		        <s:submit class="ui inverted fluid submit button" value="Autenticar" />
 		      <div class="ui error message"></div>
-		    </form>
-			<form class="ui large form content2">
+		    </s:form>
+			<s:form action="cadastrarLoginAction" class="ui large form content2">
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="user icon"></i>
-		            <input type="text" name="cpf" placeholder="Insira seu CPF">
+		            <s:textfield name="usuario.cpfLogin" placeholder="Insira seu CPF"/>
 		          </div>
 		        </div>
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="lock icon"></i>
-		            <input type="password" name="senha" placeholder="Insira a senha desejada">
+		            <s:password name="usuario.senha" placeholder="Insira a senha desejada" />
 		          </div>
 		        </div>
-		        <div class="field">
+		        <!-- <div class="field">
 		          <div class="ui left icon input">
 		            <i class="lock icon"></i>
-		            <input type="password" name="senha2" placeholder="Insira a senha novamente">
+		            <input type="password" name="senha2" placeholder="Insira a senha novamente" />
 		          </div>
-		        </div>
-		        <div class="ui inverted fluid submit button">Cadastrar</div>
+		        </div> -->
+		        <s:submit class="ui inverted fluid submit button" value="Cadastrar" />
 		      <div class="ui error message"></div>
-		    </form>	
+		    </s:form>	
 		</div>
 	</div>
 	<script src="js/jquery-2.2.1.min.js"></script>
