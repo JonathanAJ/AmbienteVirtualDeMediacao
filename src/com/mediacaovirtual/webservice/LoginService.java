@@ -14,7 +14,7 @@ import javax.ws.rs.Produces;
 
 import com.mediacaovirtual.dao.UsuarioDAO;
 
-@Path("/LoginService")
+@Path("loginservice")
 public class LoginService {
 	
 	UsuarioDAO dao = new UsuarioDAO();

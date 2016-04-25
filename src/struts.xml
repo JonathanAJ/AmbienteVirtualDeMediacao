@@ -2,10 +2,11 @@
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
- 
+
 <struts>
   <constant name="struts.devMode" value="true" />
   <constant name="struts.ui.theme" value="simple" />
+  <constant name="struts.action.excludePattern" value="/webs/*" />
   
   <package name="basicstruts2" extends="struts-default">
   
