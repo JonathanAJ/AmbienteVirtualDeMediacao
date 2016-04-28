@@ -12,7 +12,7 @@
   
     <action name="logarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="logar">
     	<result name="sucesso">/index.jsp</result>
-    	<result name="erro">/login.jsp?erro=true</result>
+    	<result name="erro">/login.jsp</result>
     </action>
     
     <action name="cadastrarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="cadastrar">

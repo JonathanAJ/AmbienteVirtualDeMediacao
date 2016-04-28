@@ -33,13 +33,13 @@
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="user icon"></i>
-		            <s:textfield name="usuario.cpfLogin" placeholder="CPF" />
+		            <s:textfield name="usuario.cpfLogin" placeholder="CPF" required="true"/>
 		          </div>
 		        </div>
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="lock icon"></i>
-		            <s:password name="usuario.senha" placeholder="Senha" />
+		            <s:password name="usuario.senha" placeholder="Senha" required="true"/>
 		          </div>
 		        </div>
 		        <s:submit class="ui inverted fluid submit button" value="Autenticar" />
@@ -49,19 +49,19 @@
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="user icon"></i>
-		            <s:textfield name="usuario.nome" placeholder="Insira seu Nome"/>
+		            <s:textfield name="usuario.nome" placeholder="Insira seu Nome" required="true"/>
 		          </div>
 		        </div>
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="user icon"></i>
-		            <s:textfield name="usuario.cpfLogin" placeholder="Insira seu CPF"/>
+		            <s:textfield name="usuario.cpfLogin" placeholder="Insira seu CPF" required="true"/>
 		          </div>
 		        </div>
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="lock icon"></i>
-		            <s:password name="usuario.senha" placeholder="Insira a senha desejada" />
+		            <s:password name="usuario.senha" placeholder="Insira a senha desejada" required="true"/>
 		          </div>
 		        </div>
 		        <!-- <div class="field">
@@ -71,9 +71,29 @@
 		          </div>
 		        </div> -->
 		        <s:submit class="ui inverted fluid submit button" value="Cadastrar" />
-		      <div class="ui error message"></div>
-		    </s:form>	
+		    </s:form>
 		</div>
+        <s:if test='info=="Erro_Login"'>
+		    <div id="mensagem-auth" class="ui error message transition">
+				<i class="close icon"></i>
+				<div class="header">Erro no Login!</div>
+				<p class="text">Confira suas credenciais</p>
+			</div>
+        </s:if>
+        <s:elseif test='info=="Erro_Cadastro"'>
+		    <div id="mensagem-auth" class="ui error message transition">
+				<i class="close icon"></i>
+				<div class="header">Erro no cadastro!</div>
+				<p class="text">CPF já está cadastrado. Insira outro.</p>
+			</div>
+        </s:elseif>
+        <s:elseif test='info=="Ok_Cadastro"'>
+		    <div id="mensagem-auth" class="ui success message transition">
+				<i class="close icon"></i>
+				<div class="header">Você foi registrado com sucesso!</div>
+				<p class="text">Logue-se para acessar.</p>
+			</div>
+        </s:elseif>
 	</div>
 	<script src="js/jquery-2.2.1.min.js"></script>
 	<script src="js/semantic.min.js"></script>

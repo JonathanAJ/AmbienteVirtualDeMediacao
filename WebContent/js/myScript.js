@@ -1,8 +1,5 @@
 $(document).ready(function(){
-	$('.ui.rating').rating();
-	$('.ui.dropdown').dropdown({
-    	action: 'hide'
-  	});
+	iniciaConfigSemantic();
 	mudaAutenticacao();
 });
 
@@ -22,4 +19,21 @@ function mudaAutenticacao(){
 		content1.css("display", "block");
 		content2.css("display", "none");
   	});
+}
+
+function iniciaConfigSemantic(){
+	// selecionar reputação
+	$('.ui.rating').rating();
+	// abrir dropdowns
+	$('.ui.dropdown').dropdown({
+    	action: 'hide'
+  	});
+	// fechar mensagem
+	$('.message .close')
+	  .on('click', function() {
+	    $(this)
+	      .closest('.message')
+	      .transition('fade')
+	    ;
+	  });
 }
