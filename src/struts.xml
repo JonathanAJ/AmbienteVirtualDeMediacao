@@ -16,8 +16,8 @@
     </action>
     
     <action name="cadastrarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="cadastrar">
-    	<result name="sucesso">/login.jsp?sucesso=true</result>
-    	<result name="erro">/login.jsp?erro=true</result>
+    	<result name="sucesso">/login.jsp</result>
+    	<result name="erro">/login.jsp</result>
     </action>
     
   </package>
