@@ -25,8 +25,10 @@ public class UsuarioDAO {
 			pstm.close();
 			con.close();
 			if (isUsuario) {
-				return true;	
+				System.out.println("É um usuário");
+				return true;
 			} else {
+				System.out.println("Não é um usuário");
 				return false;
 			}
 		} catch(SQLException e){
@@ -47,8 +49,10 @@ public class UsuarioDAO {
 			pstm.close();
 			con.close();
 			if (isUsuario) {
+				System.out.println("É um usuário");
 				return true;	
 			} else {
+				System.out.println("Não é um usuário");
 				return false;
 			}
 		} catch(SQLException e){
@@ -57,19 +61,21 @@ public class UsuarioDAO {
 		}
 	}
 	
-	public boolean createUsuario(String cpf, String senha){
+	public boolean createUsuario(String cpf, String senha, String nome){
 		try {
 			if(isUsuario(cpf)){
 				return false;
 			}else{
 				Connection con = new Banco().getConexao();
-				String query = "INSERT INTO usuario (cpf_login, senha) VALUES (?, ?)";
+				String query = "INSERT INTO usuario (cpf_login, senha, nome) VALUES (?, ?, ?)";
 				PreparedStatement pstm = con.prepareStatement(query);
 				pstm.setString(1, cpf);
 				pstm.setString(2, senha);
+				pstm.setString(3, nome);
 				pstm.executeUpdate();
 				pstm.close();
 				con.close();
+				System.out.println("Criado com sucesso!");
 				return true;	
 			}
 		} catch (SQLException e) {

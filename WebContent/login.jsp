@@ -49,6 +49,12 @@
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="user icon"></i>
+		            <s:textfield name="usuario.nome" placeholder="Insira seu Nome"/>
+		          </div>
+		        </div>
+		        <div class="field">
+		          <div class="ui left icon input">
+		            <i class="user icon"></i>
 		            <s:textfield name="usuario.cpfLogin" placeholder="Insira seu CPF"/>
 		          </div>
 		        </div>

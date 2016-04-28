@@ -28,7 +28,7 @@ public class LoginAction extends ActionSupport{
 	}
 
 	public String cadastrar(){
-		boolean cadastro = dao.createUsuario(usuario.getCpfLogin(), usuario.getSenha());
+		boolean cadastro = dao.createUsuario(usuario.getCpfLogin(), usuario.getSenha(), usuario.getNome());
 		if(cadastro){
 			return "sucesso";
 		}else{

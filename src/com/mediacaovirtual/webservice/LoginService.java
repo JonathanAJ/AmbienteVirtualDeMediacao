@@ -34,10 +34,11 @@ public class LoginService {
 
 	@POST
 	@Produces("text/xml")
-	@Path("cadastrar/{cpf}/{senha}")
+	@Path("cadastrar/{cpf}/{senha}/{nome}")
 	public String cadastrar(@PathParam("cpf") String cpfLogin,
-							@PathParam("senha") String senha){
-		boolean cadastro = dao.createUsuario(cpfLogin, senha);
+							@PathParam("senha") String senha,
+							@PathParam("senha") String nome){
+		boolean cadastro = dao.createUsuario(cpfLogin, senha, nome);
 		if(cadastro){
 			return "<msg>sucesso</msg>";
 		}else{
