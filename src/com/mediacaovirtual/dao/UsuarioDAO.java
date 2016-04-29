@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mediacaovirtual.controller.Banco;
+import com.mediacaovirtual.model.Usuario;
 
 public class UsuarioDAO {
 	
@@ -144,6 +145,29 @@ public class UsuarioDAO {
 		} catch (SQLException e){
 			e.printStackTrace();
 			return lista;
+		}
+	}
+	
+	public Usuario getUsuario(String cpf){
+		try {
+			Connection con = new Banco().getConexao();
+			String query = "SELECT * FROM usuario WHERE cpf_login=?";
+			PreparedStatement pstm = con.prepareStatement(query);
+			pstm.setString(1, cpf);
+			ResultSet rs = pstm.executeQuery();
+			Usuario usuario = new Usuario();
+			while(rs.next()){
+				usuario.setId(rs.getInt("id"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setCpfLogin(rs.getString("cpf_login"));
+			}
+			rs.close();
+			pstm.close();
+			con.close();
+			return usuario;
+		} catch (SQLException e){
+			e.printStackTrace();
+			return null;
 		}
 	}
 }

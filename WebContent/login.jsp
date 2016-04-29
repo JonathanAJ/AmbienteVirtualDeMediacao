@@ -14,8 +14,10 @@
 		</div>
 	</div>
 	<div class="logo">
-		<div class="bg-logo">	
-			<img class="logo-login" src="img/logo.png">
+		<div class="bg-logo">
+			<a href="login.jsp">		
+				<img class="logo-login" src="img/logo.png">
+			</a>
 		</div>
 		<h3 class="nome-logo">Ambiente Virtual de Mediação e Conciliação</h3>
 	</div>

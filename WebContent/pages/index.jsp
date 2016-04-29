@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <title>Ambiente Virtual de Mediação e Conciliação</title>
-<link rel="stylesheet" type="text/css" href="css/semantic.min.css">
-<link rel="stylesheet" type="text/css" href="css/myStyle.css">
+<link rel="stylesheet" type="text/css" href="../css/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="../css/myStyle.css">
 </head>
 <body>
 	<div class="ui grid conteiner menu-principal">
@@ -15,14 +15,14 @@
 				<div class="ui red floating labeled icon dropdown button mg-tp-5">
 					<i class="sidebar icon"></i> <span class="text">Opções</span>
 					<div class="menu">
-						<a class="item" href="#link1"><i class="home icon"></i> Home</a> <a
-							class="item" href="#link2"><i class="users icon"></i> Browse</a>
-						<a class="item" href="#link3"><i class="search icon"></i>
-							Search</a>
+						<a class="item" href="#link1"><i class="home icon"></i> Home</a>
+						<a class="item" href="#link2"><i class="users icon"></i> Browse</a>
+						<a class="item" href="#link3"><i class="search icon"></i> Search</a>
+						<a class="item" href="../logoutLoginAction"><i class="remove circle outline icon"></i> Sair</a>
 					</div>
 				</div>
 			</div>
-			<img class="logo-acao" src="img/logo.png">
+			<img class="logo-acao" src="../img/logo.png">
 		</div>
 	</div>
 	<div class="ui grid container">
@@ -30,7 +30,7 @@
 			<div class="ui grid menu-esquerdo">
 				<div class="ui row menu-perfil">
 					<div class="column">
-						<img class="ui medium image centered" src="img/person.jpg">
+						<img class="ui medium image centered" src="../img/person.jpg">
 						<div class="ui huge star rating mg-tp-5" data-rating="5"
 							data-max-rating="5"></div>
 						<div class="ui small gray label mg-tp-5">
@@ -79,9 +79,11 @@
 			<div class="ui grid">
 				<div class="row">
 					<div class="sixteen wide column mg-tp-25">
-						<h2>ELIZABETH AQUINO</h2>
+						<h2>
+							<s:property value="#session.usuario.nome" />
+						</h2>
 						<p class="mg-tp-15-menos">
-							Mediadora, Fortaleza-CE <i class='icon user teal'></i>
+							Mediadora, Fortaleza-CE - <s:property value="#session.usuario.cpfLogin" /><i class='icon user teal'></i>
 						</p>
 						<div class="ui form mg-tp-30">
 							<div class="ui action input fluid">
@@ -99,7 +101,7 @@
 						<div class="ui items">
 							<div class="item">
 								<div class="ui tiny image">
-									<img src="img/person.jpg">
+									<img src="../img/person.jpg">
 								</div>
 								<div class="middle aligned content">
 									<div class="header">Lorem ipsum dolor sit.</div>
@@ -116,7 +118,7 @@
 							</div>
 							<div class="item">
 								<div class="ui tiny image">
-									<img src="img/person.jpg">
+									<img src="../img/person.jpg">
 								</div>
 								<div class="middle aligned content">
 									<div class="header">Lorem ipsum dolor.</div>
@@ -133,7 +135,7 @@
 							</div>
 							<div class="item">
 								<div class="ui tiny image">
-									<img src="img/person.jpg">
+									<img src="../img/person.jpg">
 								</div>
 								<div class="middle aligned content">
 									<div class="header">Lorem ipsum dolor sit amet.</div>
@@ -149,7 +151,7 @@
 							</div>
 							<div class="item">
 								<div class="ui tiny image">
-									<img src="img/person.jpg">
+									<img src="../img/person.jpg">
 								</div>
 								<div class="middle aligned content">
 									<div class="header">Lorem ipsum.</div>
@@ -170,7 +172,7 @@
 						<div class="ui items">
 							<div class="item">
 								<div class="ui tiny image">
-									<img src="img/person.jpg">
+									<img src="../img/person.jpg">
 								</div>
 								<div class="middle aligned content">
 									<div class="header">Lorem ipsum.</div>
@@ -187,7 +189,7 @@
 							</div>
 							<div class="item">
 								<div class="ui tiny image">
-									<img src="img/person.jpg">
+									<img src="../img/person.jpg">
 								</div>
 								<div class="middle aligned content">
 									<div class="header">Lorem ipsum dolor sit.</div>
@@ -204,7 +206,7 @@
 							</div>
 							<div class="item">
 								<div class="ui tiny image">
-									<img src="img/person.jpg">
+									<img src="../img/person.jpg">
 								</div>
 								<div class="middle aligned content">
 									<div class="header">Lorem ipsum dolor.</div>
@@ -221,7 +223,7 @@
 							</div>
 							<div class="item">
 								<div class="ui tiny image">
-									<img src="img/person.jpg">
+									<img src="../img/person.jpg">
 								</div>
 								<div class="middle aligned content">
 									<div class="header">Lorem ipsum dolor sit amet.</div>
@@ -241,8 +243,8 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/jquery-2.2.1.min.js"></script>
-	<script src="js/semantic.min.js"></script>
-	<script src="js/myScript.js"></script>
+	<script src="../js/jquery-2.2.1.min.js"></script>
+	<script src="../js/semantic.min.js"></script>
+	<script src="../js/myScript.js"></script>
 </body>
 </html>
