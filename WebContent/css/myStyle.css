@@ -13,9 +13,9 @@
  * Test Grid
  */
 
-/*div{
+/* div{
 	border: 1px solid #000;
-}*/
+} */
 
 html, body{
 	background-color: #C0D6DF;
@@ -131,7 +131,11 @@ html, body{
 }
 
 .mg-tp-15-menos{
-	margin-top: -15px;
+	margin-top: -15px !important;
+}
+
+.mg-tp-15{
+	margin-top: 15px !important;
 }
 
 .mg-tp-25{
