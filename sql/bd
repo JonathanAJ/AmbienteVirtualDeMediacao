@@ -1,0 +1,8 @@
+﻿CREATE TABLE usuario
+(
+  id serial NOT NULL,
+  cpf_login character varying(11) NOT NULL,
+  senha character varying(20) NOT NULL,
+  nome character varying(90) NOT NULL,
+  PRIMARY KEY (id)
+)
