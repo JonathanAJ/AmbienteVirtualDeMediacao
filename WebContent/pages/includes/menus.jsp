@@ -3,7 +3,9 @@
 			<div class="ui grid menu-esquerdo">
 				<div class="ui row menu-perfil">
 					<div class="column">
-						<img class="ui medium image centered" src="../img/person.jpg">
+						<a href="index.jsp">
+							<img class="ui medium image centered" src="../img/person.jpg">
+						</a>
 						<div class="ui huge star rating mg-tp-5" data-rating="5"
 							data-max-rating="5"></div>
 						<div class="ui small gray label mg-tp-5">
