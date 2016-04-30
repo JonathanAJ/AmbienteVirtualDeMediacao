@@ -1,19 +1,306 @@
-﻿CREATE TABLE usuario
-(
-  id serial NOT NULL,
-  cpf_login character varying(11) NOT NULL,
-  senha character varying(20) COLLATE pg_catalog."pt_BR.utf8" NOT NULL,
-  nome character varying(90) COLLATE pg_catalog."pt_BR.utf8" NOT NULL,
-  CONSTRAINT usuario_pkey PRIMARY KEY (id)
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.4.6
+-- Dumped by pg_dump version 9.4.6
+-- Started on 2016-04-30 01:01:28 BRT
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1 (class 3079 OID 12808)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2978 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 178 (class 1259 OID 49373)
+-- Name: categoria; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE categoria (
+    id integer NOT NULL,
+    nome character varying(90) COLLATE pg_catalog."pt_BR.utf8" NOT NULL,
+    descricao character varying(255) COLLATE pg_catalog."pt_BR.utf8"
 );
 
-CREATE TABLE posts
-(
-  id serial NOT NULL,
-  texto text COLLATE pg_catalog."pt_BR.utf8" NOT NULL,
-  id_pertence integer NOT NULL,
-  CONSTRAINT posts_pkey PRIMARY KEY (id),
-  CONSTRAINT id_pertence_fk FOREIGN KEY (id_pertence)
-      REFERENCES usuario (id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+
+ALTER TABLE categoria OWNER TO postgres;
+
+--
+-- TOC entry 177 (class 1259 OID 49371)
+-- Name: categoria_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE categoria_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE categoria_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2979 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: categoria_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE categoria_id_seq OWNED BY categoria.id;
+
+
+--
+-- TOC entry 176 (class 1259 OID 49347)
+-- Name: posts; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE posts (
+    id integer NOT NULL,
+    texto text COLLATE pg_catalog."pt_BR.utf8" NOT NULL,
+    id_pertence integer NOT NULL,
+    id_categoria_pertence integer NOT NULL
 );
+
+
+ALTER TABLE posts OWNER TO postgres;
+
+--
+-- TOC entry 175 (class 1259 OID 49345)
+-- Name: posts_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE posts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE posts_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2980 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE posts_id_seq OWNED BY posts.id;
+
+
+--
+-- TOC entry 174 (class 1259 OID 49339)
+-- Name: usuario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE usuario (
+    id integer NOT NULL,
+    cpf_login character varying(11) NOT NULL,
+    senha character varying(20) COLLATE pg_catalog."pt_BR.utf8" NOT NULL,
+    nome character varying(90) COLLATE pg_catalog."pt_BR.utf8" NOT NULL
+);
+
+
+ALTER TABLE usuario OWNER TO postgres;
+
+--
+-- TOC entry 173 (class 1259 OID 49337)
+-- Name: usuario_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE usuario_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE usuario_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2981 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: usuario_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE usuario_id_seq OWNED BY usuario.id;
+
+
+--
+-- TOC entry 2847 (class 2604 OID 49376)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY categoria ALTER COLUMN id SET DEFAULT nextval('categoria_id_seq'::regclass);
+
+
+--
+-- TOC entry 2846 (class 2604 OID 49350)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY posts ALTER COLUMN id SET DEFAULT nextval('posts_id_seq'::regclass);
+
+
+--
+-- TOC entry 2845 (class 2604 OID 49342)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY usuario ALTER COLUMN id SET DEFAULT nextval('usuario_id_seq'::regclass);
+
+
+--
+-- TOC entry 2970 (class 0 OID 49373)
+-- Dependencies: 178
+-- Data for Name: categoria; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY categoria (id, nome, descricao) FROM stdin;
+1	Cobrança de Dívida	\N
+2	Conflito Familiar	\N
+3	Conflito de Vizinhos	\N
+4	Conflito Escolar	\N
+5	Conflito Trabalhista	\N
+8	Ameaça	\N
+7	Conflito de Imóvel	\N
+\.
+
+
+--
+-- TOC entry 2982 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: categoria_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('categoria_id_seq', 8, true);
+
+
+--
+-- TOC entry 2968 (class 0 OID 49347)
+-- Dependencies: 176
+-- Data for Name: posts; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY posts (id, texto, id_pertence, id_categoria_pertence) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2983 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('posts_id_seq', 1, false);
+
+
+--
+-- TOC entry 2966 (class 0 OID 49339)
+-- Dependencies: 174
+-- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY usuario (id, cpf_login, senha, nome) FROM stdin;
+1	60759837325	123	Jonathan Alves
+\.
+
+
+--
+-- TOC entry 2984 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: usuario_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('usuario_id_seq', 4, true);
+
+
+--
+-- TOC entry 2853 (class 2606 OID 49378)
+-- Name: categoria_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY categoria
+    ADD CONSTRAINT categoria_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2851 (class 2606 OID 49360)
+-- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY posts
+    ADD CONSTRAINT posts_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2849 (class 2606 OID 49344)
+-- Name: usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2855 (class 2606 OID 49380)
+-- Name: id_categoria_pertence_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY posts
+    ADD CONSTRAINT id_categoria_pertence_fk FOREIGN KEY (id_categoria_pertence) REFERENCES categoria(id);
+
+
+--
+-- TOC entry 2854 (class 2606 OID 49354)
+-- Name: id_pertence_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY posts
+    ADD CONSTRAINT id_pertence_fk FOREIGN KEY (id_pertence) REFERENCES usuario(id);
+
+
+--
+-- TOC entry 2977 (class 0 OID 0)
+-- Dependencies: 6
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2016-04-30 01:01:28 BRT
+
+--
+-- PostgreSQL database dump complete
+--
+
