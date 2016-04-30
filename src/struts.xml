@@ -8,8 +8,8 @@
   <constant name="struts.ui.theme" value="simple" />
   <constant name="struts.action.excludePattern" value="/webs/*" />
   
-  <package name="basicstruts2" extends="struts-default">
-  
+  <package name="login" extends="struts-default">
+  	<!-- Actions de Login -->
     <action name="logarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="logar">
     	<result name="sucesso" type="redirect">/pages/index.jsp</result>
     	<result name="erro">/login.jsp</result>
@@ -23,6 +23,12 @@
     <action name="logoutLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="logout">
     	<result name="sucesso">/login.jsp</result>
     </action>
-    
+  </package>
+  
+  <package name="postagens" extends="struts-default" namespace="/pages">
+    <!-- Actions de Postagens -->
+    <action name="cadastrarPostAction" class="com.mediacaovirtual.controller.PostAction" method="cadastrar">
+    	<result name="sucesso">/pages/post.jsp</result>
+    </action>
   </package>
 </struts>

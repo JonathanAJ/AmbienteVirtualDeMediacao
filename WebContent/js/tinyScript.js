@@ -7,7 +7,7 @@ function inicializaTiny(){
 	    selector: '#meuEditor',
 	    theme: 'modern',
 	    skin: 'custom',
-	    height: 340,
+	    height: 280,
 	    content_css: '../css/semantic.min.css',
 	    menubar: false,
 	    statusbar: false,

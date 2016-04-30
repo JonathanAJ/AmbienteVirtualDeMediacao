@@ -45,7 +45,6 @@
 		          </div>
 		        </div>
 		        <s:submit class="ui inverted fluid submit button" value="Autenticar" />
-		      <div class="ui error message"></div>
 		    </s:form>
 			<s:form action="cadastrarLoginAction" class="ui large form content2">
 		        <div class="field">

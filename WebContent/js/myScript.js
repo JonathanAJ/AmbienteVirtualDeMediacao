@@ -25,9 +25,10 @@ function iniciaConfigSemantic(){
 	// selecionar reputação
 	$('.ui.rating').rating();
 	// abrir dropdowns
-	$('.ui.dropdown').dropdown({
+	$('#menu-dropdown.dropdown').dropdown({
     	action: 'hide'
   	});
+	$('#categoriaPost.dropdown').dropdown();
 	// fechar mensagem
 	$('.message .close')
 	  .on('click', function() {

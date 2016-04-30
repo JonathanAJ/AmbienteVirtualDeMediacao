@@ -3,12 +3,26 @@
 <jsp:include page="includes/menus.jsp" />
 <div class="row">
 	<div class="sixteen wide column container">
-		<div class="ui form">
-			<s:form action="postAction" method="post">
-			    <s:textarea id="meuEditor" name="post.texto"/>
-			    <s:submit class="ui teal button right floated mg-tp-15" value="Enviar"/>
-			</s:form>
-		</div>
+		<s:form action="/pages/cadastrarPostAction" method="post" class="ui form">
+			<div class="field">
+				<s:bean name="com.mediacaovirtual.dao.CategoriaDAO" var="catDAO"/>
+				<select id="categoriaPost" class="ui fluid dropdown" name="post.idCategoria">
+			    	<option value="">Selecione...</option>
+					<s:iterator value="#catDAO.listarCategorias()" var="cat">				
+						<option value="<s:property value="#cat.getId()"/>">
+							<s:property value="#cat.getNome()"/>
+						</option>
+					</s:iterator>
+			    </select>
+		    </div>
+			<div class="field">
+		    	<s:textarea id="meuEditor" name="post.texto"/>
+		    </div>
+			<div class="field">
+		    	<input type="hidden" name="post.idPertence" value="<s:property value="#session.usuario.id"/>"/>
+		    </div>
+		    <s:submit class="ui teal button right floated mg-tp-15" value="Enviar"/>
+		</s:form>
 	</div>
 </div>
 <jsp:include page="includes/footer.jsp" />
