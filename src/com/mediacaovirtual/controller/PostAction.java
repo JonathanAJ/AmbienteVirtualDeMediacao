@@ -1,5 +1,6 @@
 package com.mediacaovirtual.controller;
 
+import com.mediacaovirtual.dao.PostDAO;
 import com.mediacaovirtual.model.Post;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -7,7 +8,14 @@ import com.opensymphony.xwork2.ActionSupport;
 public class PostAction extends ActionSupport{
 	
 	private Post post = new Post();
-		
+	private PostDAO dao = new PostDAO();
+	
+	public PostDAO getDao() {
+		return dao;
+	}
+	public void setDao(PostDAO dao) {
+		this.dao = dao;
+	}
 	public Post getPost() {
 		return post;
 	}
@@ -16,9 +24,10 @@ public class PostAction extends ActionSupport{
 	}
 
 	public String cadastrar(){
-		System.out.println("Categoria: " + post.getIdCategoria());
-		System.out.println("Texto: " + post.getTexto());
-		System.out.println("Usuário: " + post.getIdPertence());
-		return "sucesso";
+		if(dao.createPost(post.getTexto(), post.getIdPertence(), post.getIdCategoria())){
+			return "sucesso";	
+		}else{
+			return "erro";
+		}
 	}
 }
