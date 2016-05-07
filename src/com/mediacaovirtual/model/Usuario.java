@@ -1,14 +1,20 @@
 package com.mediacaovirtual.model;
 
-/**
- * @author jonathan
- *
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Usuario {
-	
+	@Id
+	@GeneratedValue
 	private int id;
+	@Column(length=90, nullable=false)
 	private String nome;
+	@Column(length=11, nullable=false)
 	private String cpfLogin;
+	@Column(length=20, nullable=false)
 	private String senha;
 	
 	public int getId() {

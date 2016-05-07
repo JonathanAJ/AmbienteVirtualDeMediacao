@@ -1,33 +1,39 @@
 package com.mediacaovirtual.controller;
 
+import java.util.Map;
+
 import com.mediacaovirtual.dao.PostDAO;
 import com.mediacaovirtual.model.Post;
+import com.mediacaovirtual.model.Usuario;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 @SuppressWarnings("serial")
 public class PostAction extends ActionSupport{
 	
 	private Post post = new Post();
-	private PostDAO dao = new PostDAO();
+	private PostDAO postDAO = new PostDAO();
 	
-	public PostDAO getDao() {
-		return dao;
-	}
-	public void setDao(PostDAO dao) {
-		this.dao = dao;
-	}
 	public Post getPost() {
 		return post;
 	}
 	public void setPost(Post post) {
 		this.post = post;
 	}
-
 	public String cadastrar(){
-		if(dao.createPost(post.getTexto(), post.getIdPertence(), post.getIdCategoria())){
-			return "sucesso";	
+		// validações
+		if(post.getCategoria().getId() == 0){
+			return "erro_categoria";
+		}else if(post.getTexto().length() < 100){
+			return "erro_texto";
 		}else{
-			return "erro";
+			Map<String, Object> session = ActionContext.getContext().getSession();
+			post.setDono((Usuario) session.get("usuario"));
+			if(postDAO.createPost(post)){
+				return "sucesso";
+			}else{
+				return "erro";
+			}
 		}
 	}
 }

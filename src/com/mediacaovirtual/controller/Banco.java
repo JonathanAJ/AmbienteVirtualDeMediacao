@@ -1,24 +1,23 @@
 package com.mediacaovirtual.controller;
 
-import java.sql.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 public class Banco {
 	
-	public Connection getConexao(){
-		Connection conexao = null;
-		String url = "jdbc:postgresql://localhost:5432/";
-		String bd = "bdMediacaoVirtual";
-		String usuario = "postgres";
-		String senha = "";
+	public Session getConexao(){
 		
-		try {	
-			Class.forName("org.postgresql.Driver");
-			conexao = DriverManager.getConnection(url+bd, usuario, senha);
-		} catch (Exception e){
-			e.printStackTrace();
-		}
+		Configuration configuration = new Configuration();
+		configuration.configure();
+		StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
+				.configure("hibernate.cfg.xml")
+				.build();
+		SessionFactory sessionFactory =	configuration.buildSessionFactory(standardRegistry);
+		Session session = sessionFactory.openSession();
 		
-		return conexao;
-		
+		return session;
 	}
 }

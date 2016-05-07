@@ -1,8 +1,16 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <jsp:include page="includes/header.jsp" />
 <jsp:include page="includes/menus.jsp" />
 			<div class="row">
 				<div class="sixteen wide column container">
+		        <c:if test='${param.sucesso == "post"}'>
+				    <div id="mensagem-auth" class="ui success message transition">
+						<i class="close icon"></i>
+						<div class="header">Sucesso!</div>
+						<p class="text">Seu post está disponível, veja abaixo!</p>
+					</div>
+		        </c:if>
 					<div class="ui form">
 						<div class="ui action input fluid">
 							<input type="text" name="busca"

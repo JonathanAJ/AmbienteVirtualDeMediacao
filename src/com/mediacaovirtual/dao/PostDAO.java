@@ -1,27 +1,25 @@
 package com.mediacaovirtual.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.mediacaovirtual.controller.Banco;
+import com.mediacaovirtual.model.Post;
 
 public class PostDAO {
 	
-	public boolean createPost(String texto, int id_pertence, int id_categoria_pertence){
+	private Banco bd = new Banco();
+	
+	public boolean createPost(Post post){
 		try {
-			Connection con = new Banco().getConexao();
-			String query = "INSERT INTO posts (texto, id_pertence, id_categoria_pertence) VALUES (?, ?, ?)";
-			PreparedStatement pstm = con.prepareStatement(query);
-			pstm.setString(1, texto);
-			pstm.setInt(2, id_pertence);
-			pstm.setInt(3, id_categoria_pertence);
-			pstm.executeUpdate();
-			pstm.close();
-			con.close();
-			System.out.println("Criado post com sucesso!");
+			Session conSession = bd.getConexao();
+			Transaction tx = conSession.beginTransaction();
+			conSession.save(post);
+			tx.commit();
+			conSession.close();
 			return true;
-		} catch (SQLException e) {
+		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
 		}

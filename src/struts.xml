@@ -28,7 +28,10 @@
   <package name="postagens" extends="struts-default" namespace="/pages">
     <!-- Actions de Postagens -->
     <action name="cadastrarPostAction" class="com.mediacaovirtual.controller.PostAction" method="cadastrar">
-    	<result name="sucesso">/pages/post.jsp</result>
+    	<result name="sucesso" type="redirect">/pages/index.jsp?sucesso=post</result>
+    	<result name="erro">/pages/post.jsp?erro=padrao</result>
+    	<result name="erro_categoria">/pages/post.jsp?erro=categoria</result>
+    	<result name="erro_texto">/pages/post.jsp?erro=texto</result>
     </action>
   </package>
 </struts>
