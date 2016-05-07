@@ -31,8 +31,8 @@
 				<select id="categoriaPost" class="ui fluid dropdown" name="post.categoria.id">
 			    	<option value="0">Selecione...</option>
 					<s:iterator value="#catDAO.listarCategorias()" var="cat">				
-						<option value="<s:property value="#cat.getId()"/>">
-							<s:property value="#cat.getNome()"/>
+						<option value="${cat.id}">
+							${cat.nome}
 						</option>
 					</s:iterator>
 			    </select>

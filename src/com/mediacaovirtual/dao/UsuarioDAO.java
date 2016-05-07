@@ -42,7 +42,7 @@ public class UsuarioDAO {
 			query.setParameter(0, cpflogin);
 			query.setParameter(1, senha);
 			List<?> results = query.list();
-			Usuario usuario = new Usuario();
+			Usuario usuario;
 			if(query.list().isEmpty()) {
 				usuario = null;
 			}else {
@@ -64,7 +64,7 @@ public class UsuarioDAO {
 			Query query = conSession.createQuery(hql);
 			query.setParameter(0, cpflogin);
 			List<?> results = query.list();
-			Usuario usuario = new Usuario();
+			Usuario usuario;
 			if(query.list().isEmpty()) {
 				usuario = null;
 			}else {
