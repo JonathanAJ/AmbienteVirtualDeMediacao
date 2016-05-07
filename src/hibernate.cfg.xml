@@ -12,9 +12,12 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
+		
 		<!-- mapeamento das entidades -->
 		<mapping class="com.mediacaovirtual.model.Usuario" />
 		<mapping class="com.mediacaovirtual.model.Post" />
 		<mapping class="com.mediacaovirtual.model.Categoria" />
+		<mapping class="com.mediacaovirtual.model.Nucleo" />
+		<mapping class="com.mediacaovirtual.model.Bairro" />
 	</session-factory>
 </hibernate-configuration>

@@ -18,11 +18,11 @@ public class Post {
 	@Column(columnDefinition = "TEXT")
 	private String texto;
 	
-	@ManyToOne(optional=false)
+	@ManyToOne(optional = false)
     @JoinColumn( foreignKey = @ForeignKey(name = "fk_categoria"))
 	private Categoria categoria;
 	
-	@ManyToOne(optional=false)
+	@ManyToOne(optional = false)
     @JoinColumn( foreignKey = @ForeignKey(name = "fk_dono"))
 	private Usuario dono;
 	

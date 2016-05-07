@@ -2,20 +2,30 @@ package com.mediacaovirtual.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Usuario {
 	@Id
 	@GeneratedValue
 	private int id;
-	@Column(length=90, nullable=false)
+	
+	@Column(length = 90, nullable = false)
 	private String nome;
-	@Column(length=11, nullable=false)
+	
+	@Column(length = 11, nullable = false)
 	private String cpfLogin;
-	@Column(length=20, nullable=false)
+	
+	@Column(length = 20, nullable = false)
 	private String senha;
+	
+	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name = "fk_nucleo"))
+	private Nucleo nucleo;
 	
 	public int getId() {
 		return id;
@@ -40,5 +50,11 @@ public class Usuario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public Nucleo getNucleo() {
+		return nucleo;
+	}
+	public void setNucleo(Nucleo nucleo) {
+		this.nucleo = nucleo;
 	}
 }

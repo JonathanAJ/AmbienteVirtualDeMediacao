@@ -5,13 +5,13 @@
 <jsp:include page="includes/menus.jsp" />
 			<div class="row">
 				<div class="sixteen wide column container">
-		        <c:if test='${param.sucesso == "post"}'>
-				    <div id="mensagem-auth" class="ui success message transition">
-						<i class="close icon"></i>
-						<div class="header">Sucesso!</div>
-						<p class="text">Seu post está disponível, veja abaixo!</p>
-					</div>
-		        </c:if>
+			        <c:if test='${param.sucesso == "post"}'>
+					    <div id="mensagem-auth" class="ui success message transition">
+							<i class="close icon"></i>
+							<div class="header">Sucesso!</div>
+							<p class="text">Seu post está disponível, veja abaixo!</p>
+						</div>
+			        </c:if>
 					<div class="ui form">
 						<div class="ui action input fluid">
 							<input type="text" name="busca"
@@ -24,10 +24,10 @@
 				</div>
 			</div>
 			<div class="two column row">
-						<s:bean name="com.mediacaovirtual.dao.PostDAO" var="postDAO"/>
-						<s:iterator value="#postDAO.listarPosts()" var="post">
-				<div class="column">
-					<div class="ui items">
+				<s:bean name="com.mediacaovirtual.dao.PostDAO" var="postDAO"/>
+				<s:iterator value="#postDAO.listarPosts()" var="post">
+					<div class="column">
+						<div class="ui items">
 							<div class="item">
 								<div class="ui tiny image">
 									<img src="../img/person.jpg">
@@ -48,9 +48,9 @@
 									</div>
 								</div>
 							</div>
+						</div>
 					</div>
-				</div>
-						</s:iterator>
+				</s:iterator>
 			</div>
 <jsp:include page="includes/footer.jsp" />
 <jsp:include page="includes/end.jsp" />

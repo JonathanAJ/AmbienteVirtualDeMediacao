@@ -28,7 +28,7 @@ function iniciaConfigSemantic(){
 	$('#menu-dropdown.dropdown').dropdown({
     	action: 'hide'
   	});
-	$('#categoriaPost.dropdown').dropdown();
+	$('.action-show.dropdown').dropdown();
 	// fechar mensagem
 	$('.message .close')
 	  .on('click', function() {

@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,6 +32,9 @@
 	</div>
 	<div class="autenticacao color-login">
 		<div class="content-autentica">
+		    
+		    <!-- Login -->
+		    
 			<s:form action="logarLoginAction" class="ui large form content1">
 		        <div class="field">
 		          <div class="ui left icon input">
@@ -46,7 +50,21 @@
 		        </div>
 		        <s:submit class="ui inverted fluid submit button" value="Autenticar" />
 		    </s:form>
+		    
+		    <!-- Cadastro -->
+		    
 			<s:form action="cadastrarLoginAction" class="ui large form content2">
+				<div class="field">
+					<select id="" class="ui fluid action-show dropdown" name="usuario.nucleo.id">
+				    	<option value="">Selecione seu Núcleo...</option>
+						<s:bean name="com.mediacaovirtual.dao.NucleoDAO" var="nucleoDAO"/>
+						<s:iterator value="#nucleoDAO.listarNucleos()" var="nucleo">				
+							<option value="${nucleo.id}">
+								${nucleo.nome}
+							</option>
+						</s:iterator>
+				    </select>
+			    </div>
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="user icon"></i>
@@ -74,27 +92,52 @@
 		        <s:submit class="ui inverted fluid submit button" value="Cadastrar" />
 		    </s:form>
 		</div>
-        <s:if test='info=="Erro_Login"'>
-		    <div id="mensagem-auth" class="ui error message transition">
-				<i class="close icon"></i>
-				<div class="header">Erro no Login!</div>
-				<p class="text">Confira suas credenciais</p>
-			</div>
-        </s:if>
-        <s:elseif test='info=="Erro_Cadastro"'>
-		    <div id="mensagem-auth" class="ui error message transition">
-				<i class="close icon"></i>
-				<div class="header">Erro no cadastro!</div>
-				<p class="text">CPF já está cadastrado. Insira outro.</p>
-			</div>
-        </s:elseif>
-        <s:elseif test='info=="Ok_Cadastro"'>
+	    
+	    <!-- Mensagens -->
+	    
+		<c:if test='${param.sucesso == "cadastro"}'>
 		    <div id="mensagem-auth" class="ui success message transition">
 				<i class="close icon"></i>
-				<div class="header">Você foi registrado com sucesso!</div>
-				<p class="text">Logue-se para acessar.</p>
+				<div class="header">Cadastro efetuado com sucesso!</div>
+				<p class="text">Logue-se para entrar.</p>
 			</div>
-        </s:elseif>
+		</c:if>
+		<c:if test='${param.erro == "nucleo"}'>
+		    <div id="mensagem-auth" class="ui error message transition">
+				<i class="close icon"></i>
+				<div class="header">Erro no Cadastro!</div>
+				<p class="text">Insira seu Núcleo</p>
+			</div>
+		</c:if>
+		<c:if test='${param.erro == "nome"}'>
+		    <div id="mensagem-auth" class="ui error message transition">
+				<i class="close icon"></i>
+				<div class="header">Erro no Cadastro!</div>
+				<p class="text">Insira seu Nome</p>
+			</div>
+		</c:if>
+		<c:if test='${param.erro == "cpf"}'>
+		    <div id="mensagem-auth" class="ui error message transition">
+				<i class="close icon"></i>
+				<div class="header">Erro no Cadastro!</div>
+				<p class="text">Insira seu CPF</p>
+			</div>
+		</c:if>
+		<c:if test='${param.erro == "senha"}'>
+		    <div id="mensagem-auth" class="ui error message transition">
+				<i class="close icon"></i>
+				<div class="header">Erro no Cadastro!</div>
+				<p class="text">Insira sua Senha</p>
+			</div>
+		</c:if>
+		<c:if test='${param.erro == "padrao"}'>
+		    <div id="mensagem-auth" class="ui error message transition">
+				<i class="close icon"></i>
+				<div class="header">Erro no Cadastro!</div>
+				<p class="text">O CPF já está cadastrado.</p>
+			</div>
+		</c:if>
+	    
 	</div>
 	<script src="js/jquery-2.2.1.min.js"></script>
 	<script src="js/semantic.min.js"></script>

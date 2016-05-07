@@ -50,14 +50,27 @@ public class LoginAction extends ActionSupport{
 	}
 
 	public String cadastrar(){
-		boolean cadastro = usuarioDao.createUsuario(usuario);
-		if(cadastro){
-			setInfo("Ok_Cadastro");
-			return "sucesso";
+		if(usuario.getNucleo().getId() == 0){
+			return "erro_nucleo";
+			
+		}else if(usuario.getNome().isEmpty() || usuario.getNome() == null){
+			return "erro_nome";
+			
+		}else if(usuario.getCpfLogin().isEmpty() || usuario.getCpfLogin() == null){
+			return "erro_cpf";
+			
+		}else if(usuario.getSenha().isEmpty() || usuario.getSenha() == null){
+			return "erro_senha";
+			
 		}else{
-			setInfo("Erro_Cadastro");
-			return "erro";
+			boolean cadastro = usuarioDao.createUsuario(usuario);
+			if(cadastro){
+				setInfo("Ok_Cadastro");
+				return "sucesso";
+			}else{
+				setInfo("Erro_Cadastro");
+				return "erro";
+			}	
 		}
-		
 	}
 }

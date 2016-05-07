@@ -16,8 +16,12 @@
     </action>
     
     <action name="cadastrarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="cadastrar">
-    	<result name="sucesso">/login.jsp</result>
-    	<result name="erro">/login.jsp</result>
+    	<result name="sucesso">/login.jsp?sucesso=cadastro</result>
+    	<result name="erro_nucleo">/login.jsp?erro=nucleo</result>
+    	<result name="erro_nome">/login.jsp?erro=nome</result>
+    	<result name="erro_cpf">/login.jsp?erro=cpf</result>
+    	<result name="erro_senha">/login.jsp?erro=senha</result>
+    	<result name="erro">/login.jsp?erro=padrao</result>
     </action>
     
     <action name="logoutLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="logout">

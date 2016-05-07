@@ -28,7 +28,7 @@
 		<s:form action="/pages/cadastrarPostAction" method="post" class="ui form">
 			<div class="field">
 				<s:bean name="com.mediacaovirtual.dao.CategoriaDAO" var="catDAO"/>
-				<select id="categoriaPost" class="ui fluid dropdown" name="post.categoria.id">
+				<select id="categoriaPost" class="ui fluid action-show dropdown" name="post.categoria.id">
 			    	<option value="0">Selecione...</option>
 					<s:iterator value="#catDAO.listarCategorias()" var="cat">				
 						<option value="${cat.id}">
