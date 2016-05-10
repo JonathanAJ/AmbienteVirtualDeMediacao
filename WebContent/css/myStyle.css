@@ -21,6 +21,12 @@ html, body{
 	background-color: #C0D6DF;
 }
 
+.grafico{
+	margin: 0 auto;
+	text-align:center;
+	width: 600px;
+}
+
 .description {
     margin-top: -2px !important;
 }

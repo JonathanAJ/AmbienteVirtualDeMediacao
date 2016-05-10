@@ -15,27 +15,31 @@ public class UsuarioDAO {
 	private Banco bd = new Banco();
 	
 	public boolean createUsuario(Usuario usuario){
+		Session conSession = bd.getConexao();
 		try{
 			Usuario usuarioTmp = getUsuario(usuario.getCpfLogin());
 			if(usuarioTmp == null){
-				Session conSession = bd.getConexao();
+				conSession = bd.getConexao();
 				Transaction tx = conSession.beginTransaction();
 				conSession.save(usuario);
 				tx.commit();
-				conSession.close();
 				return true;
 			}else{
 				return false;
 			}
+			
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
+			
+		} finally {
+			conSession.close();
 		}
 	}
 	
 	public Usuario getUsuario(String cpflogin, String senha){
+		Session conSession = bd.getConexao();
 		try {
-			Session conSession = bd.getConexao();
 			String hql = "FROM Usuario AS usuario " +
 						   "WHERE usuario.cpfLogin = ? AND usuario.senha = ?";
 			Query query = conSession.createQuery(hql);
@@ -48,17 +52,20 @@ public class UsuarioDAO {
 			}else {
 				usuario = (Usuario) results.get(0);	
 			}
-			conSession.close();
 			return usuario;
+			
 		} catch(HibernateException e){
 			e.printStackTrace();
 			return null;
+			
+		} finally {
+			conSession.close();
 		}
 	}
 
 	public Usuario getUsuario(String cpflogin){
+		Session conSession = bd.getConexao();
 		try {
-			Session conSession = bd.getConexao();
 			String hql = "FROM Usuario AS usuario " +
 						   "WHERE usuario.cpfLogin = ?";
 			Query query = conSession.createQuery(hql);
@@ -70,11 +77,14 @@ public class UsuarioDAO {
 			}else {
 				usuario = (Usuario) results.get(0);	
 			}
-			conSession.close();
 			return usuario;
+			
 		} catch(HibernateException e){
 			e.printStackTrace();
 			return null;
+			
+		} finally {
+			conSession.close();
 		}
 	}
 }

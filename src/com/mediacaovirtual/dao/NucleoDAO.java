@@ -11,19 +11,23 @@ import com.mediacaovirtual.model.Nucleo;
 
 public class NucleoDAO {
 	
+	Banco bd = new Banco();
+	
 	public List<Nucleo> listarNucleos(){
+		Session conSession = bd.getConexao();
 		try {
-			Banco con = new Banco();
-			Session sessionCon = con.getConexao();
-			String hsql = "FROM Nucleo AS nucleo";
-			Query results = sessionCon.createQuery(hsql);
+			String hql = "FROM Nucleo AS nucleo";
+			Query results = conSession.createQuery(hql);
 			@SuppressWarnings("unchecked")
 			List<Nucleo> list = results.list();
-			sessionCon.close();
 			return list;
+			
 		} catch (HibernateException e){
 			e.printStackTrace();
 			return null;
+			
+		} finally {
+			conSession.close();
 		}
 	}
 

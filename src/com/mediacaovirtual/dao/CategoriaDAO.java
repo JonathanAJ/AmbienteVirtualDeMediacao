@@ -10,19 +10,21 @@ import com.mediacaovirtual.model.Categoria;
 
 public class CategoriaDAO {
 	
+	private Banco bd = new Banco();
+	
 	public List<Categoria> listarCategorias(){
+		Session sessionCon = bd.getConexao();
 		try {
-			Banco con = new Banco();
-			Session sessionCon = con.getConexao();
 			String hsql = "FROM Categoria AS cat";
 			Query results = sessionCon.createQuery(hsql);
 			@SuppressWarnings("unchecked")
 			List<Categoria> list = results.list();
-			sessionCon.close();
 			return list;
 		} catch (HibernateException e){
 			e.printStackTrace();
 			return null;
+		} finally {
+			sessionCon.close();
 		}
 	}
 

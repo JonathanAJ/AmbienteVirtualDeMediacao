@@ -41,9 +41,9 @@
 							<button class="ui button">
 								<i class='icon users'></i> Amigos
 							</button>
-							<button class="ui button">
+							<a href="graficos.jsp"  class="ui button">
 								<i class='icon cubes'></i> Geomapa
-							</button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -58,7 +58,7 @@
 							<s:property value="#session.usuario.nome" />
 						</h2>
 						<p class="mg-tp-15-menos">
-							CPF: <s:property value="#session.usuario.cpfLogin" /><i class='icon user teal'></i>
+							<s:property value="#session.usuario.nucleo.nome" /><i class='icon user teal'></i>
 						</p>
 					</div>
 				</div>

@@ -12,9 +12,11 @@ public class Banco {
 		
 		Configuration configuration = new Configuration();
 		configuration.configure();
+		
 		StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
 				.configure("hibernate.cfg.xml")
 				.build();
+		
 		SessionFactory sessionFactory =	configuration.buildSessionFactory(standardRegistry);
 		Session session = sessionFactory.openSession();
 		
