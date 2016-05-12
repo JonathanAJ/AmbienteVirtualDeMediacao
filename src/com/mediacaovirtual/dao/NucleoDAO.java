@@ -11,10 +11,8 @@ import com.mediacaovirtual.model.Nucleo;
 
 public class NucleoDAO {
 	
-	Banco bd = new Banco();
-	
 	public List<Nucleo> listarNucleos(){
-		Session conSession = bd.getConexao();
+		Session conSession = Banco.getConexao();
 		try {
 			String hql = "FROM Nucleo AS nucleo";
 			Query results = conSession.createQuery(hql);

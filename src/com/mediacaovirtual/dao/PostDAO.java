@@ -13,10 +13,8 @@ import com.mediacaovirtual.model.Post;
 
 public class PostDAO {
 	
-	private Banco bd = new Banco();
-	
 	public boolean createPost(Post post){
-		Session conSession = bd.getConexao();
+		Session conSession = Banco.getConexao();
 		try {
 			Transaction tx = conSession.beginTransaction();
 			conSession.save(post);
@@ -33,7 +31,7 @@ public class PostDAO {
 	}
 	
 	public Post getPost(int id){
-		Session conSession = bd.getConexao();
+		Session conSession = Banco.getConexao();
 		try {
 			String hql = "FROM Post AS post WHERE post.id = ?";
 			Query query = conSession.createQuery(hql);
@@ -56,7 +54,7 @@ public class PostDAO {
 	}
 	
 	public List<Post> listarPosts(){
-		Session conSession = bd.getConexao();
+		Session conSession = Banco.getConexao();
 		try {
 			String hql = "FROM Post AS post";
 			Query query = conSession.createQuery(hql);
@@ -74,14 +72,15 @@ public class PostDAO {
 	}
 	
 	public List<Long> getNumPost(){
-		Session conSession = null;
 		try {
+			Session conSession;
 			List<Long> lista = new ArrayList<Long>();
 			for(int i=1; i<=9; i ++){
-				conSession = bd.getConexao();
+				conSession = Banco.getConexao();
 				String hql = "SELECT COUNT(post.id) FROM Post AS post WHERE post.categoria.id = " + i;
 				Query query = conSession.createQuery(hql);
 				lista.add((Long) query.uniqueResult());
+				conSession.close();
 			}
 			return lista;
 			
@@ -89,13 +88,11 @@ public class PostDAO {
 			e.printStackTrace();
 			return null;
 			
-		} finally {
-			conSession.close();
 		}
 	}
 	
 	public Long getNumPost(int idCategoria){
-		Session conSession = bd.getConexao();
+		Session conSession = Banco.getConexao();
 		try {
 			String hql = "SELECT COUNT(post.id) FROM Post AS post WHERE post.categoria.id = ?";
 			Query query = conSession.createQuery(hql);

@@ -2,6 +2,7 @@ package com.mediacaovirtual.dao;
 
 import java.util.List;
 
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -12,14 +13,12 @@ import com.mediacaovirtual.model.Usuario;
 
 public class UsuarioDAO {
 	
-	private Banco bd = new Banco();
-	
 	public boolean createUsuario(Usuario usuario){
-		Session conSession = bd.getConexao();
+		Session conSession = Banco.getConexao();
 		try{
 			Usuario usuarioTmp = getUsuario(usuario.getCpfLogin());
 			if(usuarioTmp == null){
-				conSession = bd.getConexao();
+				conSession = Banco.getConexao();
 				Transaction tx = conSession.beginTransaction();
 				conSession.save(usuario);
 				tx.commit();
@@ -38,7 +37,7 @@ public class UsuarioDAO {
 	}
 	
 	public Usuario getUsuario(String cpflogin, String senha){
-		Session conSession = bd.getConexao();
+		Session conSession = Banco.getConexao();
 		try {
 			String hql = "FROM Usuario AS usuario " +
 						   "WHERE usuario.cpfLogin = ? AND usuario.senha = ?";
@@ -64,7 +63,7 @@ public class UsuarioDAO {
 	}
 
 	public Usuario getUsuario(String cpflogin){
-		Session conSession = bd.getConexao();
+		Session conSession = Banco.getConexao();
 		try {
 			String hql = "FROM Usuario AS usuario " +
 						   "WHERE usuario.cpfLogin = ?";
