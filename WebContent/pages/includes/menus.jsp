@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
+	<div class="ui grid container">
 		<div class="two wide column">
 			<div class="ui grid menu-esquerdo">
 				<div class="ui row menu-perfil">

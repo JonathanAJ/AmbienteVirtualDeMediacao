@@ -9,22 +9,29 @@
 	<link rel="stylesheet" type="text/css" href="../css/myStyle.css">
 </head>
 <body>
-	<div class="ui grid conteiner menu-principal">
+	<div class="ui grid menu-principal">
+		
 		<div class="ui grid container">
-			<div class="two wide right floated column">
-				<div id="menu-dropdown" class="ui red floating labeled icon dropdown button mg-tp-5">
+			
+			<div class="three wide column"></div>
+			
+			<div class="thirteen wide column">
+					
+				<div id="menu-dropdown" class="ui red right floated labeled icon dropdown button tiny mg-tp-10">
 					<i class="sidebar icon"></i> <span class="text">Opções</span>
 					<div class="menu">
-						<a class="item" href="#link1"><i class="home icon"></i> Home</a>
-						<a class="item" href="#link2"><i class="users icon"></i> Browse</a>
-						<a class="item" href="#link3"><i class="search icon"></i> Search</a>
-						<a class="item" href="../logoutLoginAction"><i class="remove circle outline icon"></i> Sair</a>
+						<a class="item" href="index.jsp"><i class="home icon"></i> Início</a>
+						<a class="item" href="#link2"><i class="setting icon"></i> Config</a>
+						<a class="item" href="../logoutLoginAction">
+							<i class="remove circle outline icon"></i>
+							Logout
+						</a>
 					</div>
 				</div>
+				
+				<a href="index.jsp">
+					<img class="ui centered image logo-acao" src="../img/logo.png">		
+				</a>
 			</div>
-			<a href="index.jsp">
-				<img class="logo-acao" src="../img/logo.png">		
-			</a>
 		</div>
 	</div>
-	<div class="ui grid container">

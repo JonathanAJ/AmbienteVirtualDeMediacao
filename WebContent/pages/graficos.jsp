@@ -4,18 +4,33 @@
 <jsp:include page="includes/menus.jsp" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.2/Chart.min.js"></script>
 <div class="row">
-	<div class="sixteen wide column container">
-		<s:bean name="com.mediacaovirtual.dao.PostDAO" var="postDAO"/>
-		<div class="grafico">		
-
-			<h4 class="ui horizontal divider header cc-blue-dark" style="color: #3AA593 !important;">
-			  <i class="pie chart icon"></i>
-			  Conflitos em Fortaleza
-			</h4>
-
+	<h4 class="ui horizontal divider header cc-blue-dark" style="color: #3AA593 !important;">
+	  <i class="pie chart icon"></i>
+	  Conflitos em Fortaleza
+	</h4>
+			
+	<%-- <div class="two wide column">
+		<div class="ui vertical buttons teal">
+		  <button class="ui button">Regional</button>
+		  <button class="ui button">Bairro</button>
+		  <button class="ui button">Núcleo</button>
+		</div>
+	</div>
+	
+	
+	<div class="fourteen wide column">
+		<div class="grafico">
+			<canvas id="myChart"></canvas>
+		</div>
+	</div> --%>
+	
+	<div class="sixteen wide column">
+		<div class="grafico">
 			<canvas id="myChart"></canvas>
 		</div>
 	</div>
+	
+	<s:bean name="com.mediacaovirtual.dao.PostDAO" var="postDAO"/>
 	<script>
 		Chart.defaults.global.legend.position = "bottom";
 		var ctx = document.getElementById("myChart");
@@ -60,5 +75,4 @@
 	</script>
 </div>
 <jsp:include page="includes/footer.jsp" />
-<%-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.2/Chart.min.js"></script> --%>
 <jsp:include page="includes/end.jsp" />

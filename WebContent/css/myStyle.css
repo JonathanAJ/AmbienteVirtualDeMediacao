@@ -40,7 +40,7 @@ blockquote {
 .grafico{
 	margin: 0 auto;
 	text-align:center;
-	width: 980px;
+	width: 100%;
 }
 
 .description {
@@ -48,7 +48,7 @@ blockquote {
 }
 
 .menu-principal{
-	height: 60px;
+	height: 65px;
 	background-color: #2F363F;
 }
 
@@ -58,10 +58,8 @@ blockquote {
 }
 
 .menu-principal .logo-acao{
-	position: absolute;
-	left: 50%;
-	margin-top: 15px;
-	width: 120px;
+	margin-top: 10px;
+	width: 100px;
 	cursor: pointer;
 	z-index: 99;
 }
@@ -158,6 +156,10 @@ blockquote {
 
 .mg-tp-15{
 	margin-top: 15px !important;
+}
+
+.mg-tp-10{
+	margin-top: 10px !important;
 }
 .mg-bt-15{
 	margin-bottom: 15px !important;
