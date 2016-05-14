@@ -17,6 +17,7 @@
 		<mapping class="com.mediacaovirtual.model.Usuario" />
 		<mapping class="com.mediacaovirtual.model.Post" />
 		<mapping class="com.mediacaovirtual.model.Categoria" />
+		<mapping class="com.mediacaovirtual.model.ComentarioPost" />
 		<mapping class="com.mediacaovirtual.model.Nucleo" />
 		<mapping class="com.mediacaovirtual.model.Bairro" />
 	</session-factory>
