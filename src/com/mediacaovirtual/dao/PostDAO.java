@@ -71,6 +71,28 @@ public class PostDAO {
 		}
 	}
 	
+
+	
+	public List<Post> listarPosts(String busca){
+		Session conSession = Banco.getConexao();
+		try {
+			System.out.println("aa");
+			String hql = "FROM Post AS post WHERE post.texto LIKE ?";
+			Query query = conSession.createQuery(hql);
+			query.setParameter(0, "%" + busca + "%");
+			@SuppressWarnings("unchecked")
+			List<Post> results = query.list();
+			return results;
+		
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		
+		} finally {
+			conSession.close();
+		}
+	}
+	
 	public List<Long> getNumPost(){
 		try {
 			Session conSession;

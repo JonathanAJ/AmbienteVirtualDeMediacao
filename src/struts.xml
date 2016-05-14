@@ -8,8 +8,9 @@
   <constant name="struts.ui.theme" value="simple" />
   <constant name="struts.action.excludePattern" value="/webs/*" />
   
+  <!-- Actions de Login -->
   <package name="login" extends="struts-default">
-  	<!-- Actions de Login -->
+  	
     <action name="logarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="logar">
     	<result name="sucesso" type="redirect">/pages/index.jsp</result>
     	<result name="erro">/login.jsp</result>
@@ -29,13 +30,26 @@
     </action>
   </package>
   
+  <!-- Actions de Postagens -->
   <package name="postagens" extends="struts-default" namespace="/pages">
-    <!-- Actions de Postagens -->
+    
     <action name="cadastrarPostAction" class="com.mediacaovirtual.controller.PostAction" method="cadastrar">
     	<result name="sucesso" type="redirect">/pages/index.jsp?sucesso=post</result>
     	<result name="erro">/pages/post.jsp?erro=padrao</result>
     	<result name="erro_categoria">/pages/post.jsp?erro=categoria</result>
     	<result name="erro_texto">/pages/post.jsp?erro=texto</result>
     </action>
+    
+    <action name="comentarPostAction" class="com.mediacaovirtual.controller.PostAction" method="comentar">
+    	<result name="sucesso" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;sucesso=comentario</result>
+    	<result name="erro" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;erro=padrao</result>
+    	<result name="erro_comentario" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;erro=comentario#comentario</result>
+    </action>
+    
+    <action name="buscarPostAction" class="com.mediacaovirtual.controller.PostAction" method="buscar">
+    	<result name="sucesso" type="redirect">/pages/index.jsp?sucesso=busca</result>
+    	<result name="erro" type="redirect">/pages/index.jsp?erro=padrao</result>
+    </action>
   </package>
+  
 </struts>

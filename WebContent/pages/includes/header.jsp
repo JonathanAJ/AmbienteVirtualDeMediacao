@@ -22,7 +22,9 @@
 					</div>
 				</div>
 			</div>
-			<img class="logo-acao" src="../img/logo.png">
+			<a href="index.jsp">
+				<img class="logo-acao" src="../img/logo.png">		
+			</a>
 		</div>
 	</div>
 	<div class="ui grid container">

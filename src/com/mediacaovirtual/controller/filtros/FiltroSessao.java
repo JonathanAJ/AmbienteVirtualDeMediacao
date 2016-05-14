@@ -1,4 +1,4 @@
-package com.mediacaovirtual.controller;
+package com.mediacaovirtual.controller.filtros;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -10,7 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ActionFilter implements Filter {
+public class FiltroSessao implements Filter {
 	
 	public void destroy() {
 	}

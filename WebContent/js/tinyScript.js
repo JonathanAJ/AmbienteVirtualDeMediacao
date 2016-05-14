@@ -17,4 +17,19 @@ function inicializaTiny(){
 	    statusbar: false,
 	    toolbar: 'undo redo | bold italic underline | blockquote'
 	  });
+	
+	tinymce.init({
+	    selector: '#meuEditorComentario',
+	    theme: 'modern',
+	    skin: 'custom',
+	    plugins: "paste",
+	    paste_data_images: false,
+	    paste_as_text: true,
+	    paste_word_valid_elements: "b,strong,i",
+	    height: 100,
+	    content_css: '../css/semantic.min.css',
+	    menubar: false,
+	    statusbar: false,
+	    toolbar: 'undo redo | bold italic underline | blockquote'
+	  });
 }

@@ -9,6 +9,14 @@
    Bay of many: #041C3F
  */
 
+.bg-coment-principal{
+	background-color: #efefef;
+}
+
+.cc-blue-dark{
+	color: #2F363F;
+}
+
 /*
  * Test Grid
  */
@@ -19,6 +27,14 @@
 
 html, body{
 	background-color: #C0D6DF;
+}
+
+blockquote {
+    background-color: #bfbfbf;
+    padding: 10px 15px 10px 15px;
+    border: 1px solid white;
+    border-radius: 3px;
+    border-style: dotted;
 }
 
 .grafico{
@@ -143,14 +159,18 @@ html, body{
 .mg-tp-15{
 	margin-top: 15px !important;
 }
-
+.mg-bt-15{
+	margin-bottom: 15px !important;
+}
+.mg-bt-30{
+	margin-bottom: 30px !important;
+}
 .mg-tp-25{
 	margin-top: 25px !important;
 }
 .mg-tp-30{
 	margin-top: 30px !important;
 }
-
 .color-white{
 	color: #666 !important;
 }

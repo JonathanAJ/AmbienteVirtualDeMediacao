@@ -3,11 +3,20 @@
   <display-name>AmbienteVirtualDeMediacao</display-name>
   
   <filter>
-    <filter-name>ActionFilter</filter-name>
-    <filter-class>com.mediacaovirtual.controller.ActionFilter</filter-class>
+    <filter-name>FiltroPostagem</filter-name>
+    <filter-class>com.mediacaovirtual.controller.filtros.FiltroPostagem</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>ActionFilter</filter-name>
+    <filter-name>FiltroPostagem</filter-name>
+    <url-pattern>/pages/postagem.jsp</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>FiltroSessao</filter-name>
+    <filter-class>com.mediacaovirtual.controller.filtros.FiltroSessao</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FiltroSessao</filter-name>
     <url-pattern>/pages/*</url-pattern>
   </filter-mapping>
   

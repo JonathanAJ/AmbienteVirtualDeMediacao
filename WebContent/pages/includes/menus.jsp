@@ -15,7 +15,7 @@
 					</div>
 				</div>
 				<div class="ui row menu-opcoes">
-					<div class="column">
+					<div class="column">						
 						<div class="ui teal tiny vertical buttons">
 							<a href="post.jsp" class="ui button">
 								<i class='icon plus'></i> Novo Post
@@ -30,7 +30,9 @@
 								<i class='icon empty star'></i> Favoritos
 							</a>
 						</div>
+						
 						<div class="ui divider"></div>
+						
 						<div class="ui teal tiny vertical buttons">
 							<button class="ui button">
 								<i class='icon comments'></i> Mensagens
