@@ -71,13 +71,49 @@ public class PostDAO {
 		}
 	}
 	
-
+	public List<Post> listarMeusPosts(int id){
+		Session conSession = Banco.getConexao();
+		try {
+			String hql = "FROM Post AS post WHERE post.dono.id = ?";
+			Query query = conSession.createQuery(hql);
+			query.setParameter(0, id);
+			@SuppressWarnings("unchecked")
+			List<Post> results = query.list();
+			return results;
+		
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		
+		} finally {
+			conSession.close();
+		}
+	}
+	
+	public List<Post> listarNucleoPosts(int id){
+		Session conSession = Banco.getConexao();
+		try {
+			String hql = "FROM Post AS post WHERE post.dono.nucleo.id = ?";
+			Query query = conSession.createQuery(hql);
+			query.setParameter(0, id);
+			@SuppressWarnings("unchecked")
+			List<Post> results = query.list();
+			return results;
+		
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		
+		} finally {
+			conSession.close();
+		}
+	}
 	
 	public List<Post> listarPosts(String busca){
 		Session conSession = Banco.getConexao();
 		try {
 			System.out.println("aa");
-			String hql = "FROM Post AS post WHERE post.texto LIKE ?";
+			String hql = "FROM Post AS post WHERE lower(post.texto) LIKE lower(?)";
 			Query query = conSession.createQuery(hql);
 			query.setParameter(0, "%" + busca + "%");
 			@SuppressWarnings("unchecked")

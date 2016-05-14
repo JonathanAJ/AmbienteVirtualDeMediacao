@@ -17,16 +17,16 @@
 				<div class="ui row menu-opcoes">
 					<div class="column">						
 						<div class="ui teal tiny vertical buttons">
-							<a href="post.jsp" class="ui button">
+							<a href="post.jsp?post=true" class="ui button ${param.post==true?'active':''}">
 								<i class='icon plus'></i> Novo Post
 							</a>
-							<a href="#"  class="ui button">
+							<a href="index.jsp?meus=true"  class="ui button ${param.meus==true?'active':''}">
 								<i class='icon book'></i> Meus Posts
 							</a>
-							<a href="#"  class="ui button">
+							<a href="index.jsp?nucleo=true"  class="ui button ${param.nucleo==true?'active':''}">
 								<i class='icon sitemap'></i> Núcleo
 							</a>
-							<a href="#"  class="ui button">
+							<a href="index.jsp?fav=true"  class="ui button ${param.fav==true?'active':''}">
 								<i class='icon empty star'></i> Favoritos
 							</a>
 						</div>
@@ -44,7 +44,7 @@
 								<i class='icon users'></i> Amigos
 							</button>
 							<a href="graficos.jsp"  class="ui button">
-								<i class='icon cubes'></i> Geomapa
+								<i class='icon pie chart'></i> Geomapa
 							</a>
 						</div>
 					</div>

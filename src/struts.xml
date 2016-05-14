@@ -34,10 +34,10 @@
   <package name="postagens" extends="struts-default" namespace="/pages">
     
     <action name="cadastrarPostAction" class="com.mediacaovirtual.controller.PostAction" method="cadastrar">
-    	<result name="sucesso" type="redirect">/pages/index.jsp?sucesso=post</result>
-    	<result name="erro">/pages/post.jsp?erro=padrao</result>
-    	<result name="erro_categoria">/pages/post.jsp?erro=categoria</result>
-    	<result name="erro_texto">/pages/post.jsp?erro=texto</result>
+    	<result name="sucesso" type="redirect">/pages/index.jsp?post=true&amp;sucesso=post</result>
+    	<result name="erro">/pages/post.jsp?post=true&amp;erro=padrao</result>
+    	<result name="erro_categoria">/pages/post.jsp?post=true&amp;erro=categoria</result>
+    	<result name="erro_texto">/pages/post.jsp?post=true&amp;erro=texto</result>
     </action>
     
     <action name="comentarPostAction" class="com.mediacaovirtual.controller.PostAction" method="comentar">

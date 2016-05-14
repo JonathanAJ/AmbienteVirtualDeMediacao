@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>Ambiente Virtual de Mediação e Conciliação</title>
 	<link rel="stylesheet" type="text/css" href="../css/semantic.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/myStyle.css">

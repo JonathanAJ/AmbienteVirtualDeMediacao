@@ -7,8 +7,13 @@
 	<div class="sixteen wide column container">
 		<s:bean name="com.mediacaovirtual.dao.PostDAO" var="postDAO"/>
 		<div class="grafico">		
-			<h3>Conflitos em Fortaleza</h3>
-			<canvas id="myChart" width="200" height="200"></canvas>
+
+			<h4 class="ui horizontal divider header cc-blue-dark" style="color: #3AA593 !important;">
+			  <i class="pie chart icon"></i>
+			  Conflitos em Fortaleza
+			</h4>
+
+			<canvas id="myChart"></canvas>
 		</div>
 	</div>
 	<script>

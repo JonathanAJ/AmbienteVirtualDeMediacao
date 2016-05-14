@@ -4,7 +4,7 @@
 <jsp:include page="includes/header.jsp" />
 <jsp:include page="includes/menus.jsp" />
 
-<h4 class="ui horizontal divider header cc-blue-dark">
+<h4 class="ui horizontal divider header cc-blue-dark"  style="color: #3AA593 !important;">
   <i class="book icon"></i>
   Relato
 </h4>
@@ -35,7 +35,7 @@
 	</s:iterator>
 </div>
 
-<h4 class="ui horizontal divider header cc-blue-dark">
+<h4 class="ui horizontal divider header cc-blue-dark" style="color: #3AA593 !important;">
   <i class="comments icon"></i>
   Comentários
 </h4>

@@ -26,11 +26,38 @@
 	</div>
 </div>
 <div class="two column row">
-
-	<s:set var="busca" value="#parameters['busca']"/>
 	<s:bean name="com.mediacaovirtual.dao.PostDAO" var="postDAO"/>
+	
+	<s:set var="busca" value="#parameters.busca[0]"/>
 	<s:if test="#busca == null || #busca.isEmpty()">
-		<s:iterator value="#postDAO.listarPosts()" var="post">
+	
+		<s:set var="meus" value="#parameters.meus[0]"/>
+		<s:set var="nucleo" value="#parameters.nucleo[0]"/>
+		<s:set var="fav" value="#parameters.fav[0]"/>
+		
+		<s:if test="#meus == 'true'">
+			<s:set var="listarPosts" value="#postDAO.listarMeusPosts(#session.usuario.id)"/>
+			<s:set var="namePosts">Meus Posts</s:set>
+		</s:if>
+		<s:elseif test="#nucleo == 'true'">
+			<s:set var="listarPosts" value="#postDAO.listarNucleoPosts(#session.usuario.nucleo.id)"/>
+			<s:set var="namePosts">Posts do Núcleo</s:set>
+		</s:elseif>
+		<s:elseif test="#fav == 'true'">
+			<s:set var="listarPosts" value="null"/>
+			<s:set var="namePosts">Posts Favoritos</s:set>
+		</s:elseif>
+		<s:else>
+			<s:set var="listarPosts" value="#postDAO.listarPosts()"/>
+			<s:set var="namePosts">Todos os posts</s:set>
+		</s:else>
+
+		<h4 class="ui horizontal divider header teal" style="color: #3AA593 !important;">
+		  <i class="check circle icon"></i>
+		  <s:property value="#namePosts"/>
+		</h4>
+
+		<s:iterator value="#listarPosts" var="post">
 			<div class="column mg-bt-30">
 				<div class="ui items">
 					<div class="item">
@@ -69,43 +96,67 @@
 		</s:iterator>
 	</s:if>
 	<s:else>
-		<s:iterator value="#postDAO.listarPosts(#busca)" var="post">
-			<div class="column mg-bt-30">
-				<div class="ui items">
-					<div class="item">
-						<div class="" style="margin-right: 15px;">
-							<img src="../img/person.jpg" width="100">
-						</div>
-						<div class="middle aligned content">
-							<div class="header">
-								<a href="postagem.jsp?id=${post.id}">
-									${post.categoria.nome}
-								</a>
+		<s:set var="posts" value="#postDAO.listarPosts(#busca)"/>
+		<s:if test="#posts.isEmpty()">
+			<h2 class="ui center aligned icon header">
+			  <i class="settings icon"></i>
+			  <div class="content">
+			  	Não há postagens com '<s:property value="#busca" />'
+			    <div class="sub header">
+			  		Faça uma nova pesquisa com outra palavra.
+			  	</div>
+			  </div>
+			</h2>
+		</s:if>
+		<s:else>
+		
+			<s:set var="namePosts">
+				Resultados da busca por '<s:property value="#busca"/>'
+			</s:set>
+		
+			<h4 class="ui horizontal divider header" style="color: #3AA593 !important;">
+			  <i class="search icon"></i>
+			  <s:property value="#namePosts"/>
+			</h4>
+			
+			<s:iterator value="#posts" var="post">
+				<div class="column mg-bt-30">
+					<div class="ui items">
+						<div class="item">
+							<div class="" style="margin-right: 15px;">
+								<img src="../img/person.jpg" width="100">
 							</div>
-							<div class="description color-white">
-								<p>${fn:substring(post.texto, 0, 100)}</p>
-								
-								<span class="ui left floated">
-									<i class="comment icon"></i>
-									<s:bean name="com.mediacaovirtual.dao.ComentarioPostDAO" var="comentDAO"/>
-									<s:set var="numComent" value="#comentDAO.getNumComentarios(#post.id)"/>
-									<s:if test="#numComent == 1">
-										<s:property value="#numComent"/> Comentário						
-									</s:if>
-									<s:else>
-										<s:property value="#numComent"/> Comentários
-									</s:else>
-								</span>
-								
-								<span class="ui right floated">
-									<i class="calendar icon"></i> 31/08/2016 | 22:59
-								</span>
+							<div class="middle aligned content">
+								<div class="header">
+									<a href="postagem.jsp?id=${post.id}">
+										${post.categoria.nome}
+									</a>
+								</div>
+								<div class="description color-white">
+									<p>${fn:substring(post.texto, 0, 100)}</p>
+									
+									<span class="ui left floated">
+										<i class="comment icon"></i>
+										<s:bean name="com.mediacaovirtual.dao.ComentarioPostDAO" var="comentDAO"/>
+										<s:set var="numComent" value="#comentDAO.getNumComentarios(#post.id)"/>
+										<s:if test="#numComent == 1">
+											<s:property value="#numComent"/> Comentário						
+										</s:if>
+										<s:else>
+											<s:property value="#numComent"/> Comentários
+										</s:else>
+									</span>
+									
+									<span class="ui right floated">
+										<i class="calendar icon"></i> 31/08/2016 | 22:59
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</s:iterator>
+			</s:iterator>
+		</s:else>
 	</s:else>
 </div>
 <jsp:include page="includes/footer.jsp" />

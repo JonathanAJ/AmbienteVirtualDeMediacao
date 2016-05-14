@@ -17,10 +17,10 @@ public class Usuario {
 	@Column(length = 90, nullable = false)
 	private String nome;
 	
-	@Column(length = 11, nullable = false)
+	@Column(length = 30, nullable = false)
 	private String cpfLogin;
 	
-	@Column(length = 20, nullable = false)
+	@Column(length = 30, nullable = false)
 	private String senha;
 	
 	@ManyToOne
