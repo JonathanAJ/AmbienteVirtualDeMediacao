@@ -72,7 +72,6 @@
 							</div>
 							<div class="description color-white">
 								<p>${fn:substring(post.texto, 0, 100)}</p>
-								
 								<span class="ui left floated">
 									<i class="comment icon"></i>
 									<s:bean name="com.mediacaovirtual.dao.ComentarioPostDAO" var="comentDAO"/>
@@ -86,7 +85,8 @@
 								</span>
 								
 								<span class="ui right floated">
-									<i class="calendar icon"></i> 31/08/2016 | 22:59
+									<i class="calendar icon"></i>
+									<s:date name="#post.data" format="dd/MM/yyyy | hh:mm"/>
 								</span>
 							</div>
 						</div>
@@ -146,9 +146,10 @@
 											<s:property value="#numComent"/> Comentários
 										</s:else>
 									</span>
-									
+								
 									<span class="ui right floated">
-										<i class="calendar icon"></i> 31/08/2016 | 22:59
+										<i class="calendar icon"></i>
+										<s:date name="#post.data" format="dd/MM/yyyy | hh:mm"/>
 									</span>
 								</div>
 							</div>

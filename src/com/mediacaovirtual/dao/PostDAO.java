@@ -56,7 +56,7 @@ public class PostDAO {
 	public List<Post> listarPosts(){
 		Session conSession = Banco.getConexao();
 		try {
-			String hql = "FROM Post AS post";
+			String hql = "FROM Post AS post ORDER BY post.data DESC";
 			Query query = conSession.createQuery(hql);
 			@SuppressWarnings("unchecked")
 			List<Post> results = query.list();
@@ -74,7 +74,7 @@ public class PostDAO {
 	public List<Post> listarMeusPosts(int id){
 		Session conSession = Banco.getConexao();
 		try {
-			String hql = "FROM Post AS post WHERE post.dono.id = ?";
+			String hql = "FROM Post AS post WHERE post.dono.id = ? ORDER BY post.data DESC";
 			Query query = conSession.createQuery(hql);
 			query.setParameter(0, id);
 			@SuppressWarnings("unchecked")
@@ -93,7 +93,7 @@ public class PostDAO {
 	public List<Post> listarNucleoPosts(int id){
 		Session conSession = Banco.getConexao();
 		try {
-			String hql = "FROM Post AS post WHERE post.dono.nucleo.id = ?";
+			String hql = "FROM Post AS post WHERE post.dono.nucleo.id = ? ORDER BY post.data DESC";
 			Query query = conSession.createQuery(hql);
 			query.setParameter(0, id);
 			@SuppressWarnings("unchecked")
@@ -113,7 +113,7 @@ public class PostDAO {
 		Session conSession = Banco.getConexao();
 		try {
 			System.out.println("aa");
-			String hql = "FROM Post AS post WHERE lower(post.texto) LIKE lower(?)";
+			String hql = "FROM Post AS post WHERE lower(post.texto) LIKE lower(?) ORDER BY post.data DESC";
 			Query query = conSession.createQuery(hql);
 			query.setParameter(0, "%" + busca + "%");
 			@SuppressWarnings("unchecked")

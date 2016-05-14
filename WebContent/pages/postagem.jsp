@@ -29,6 +29,25 @@
 			</div>
 		</div>
 		<div class="thirteen wide column container">
+			<div class="ui label right floated teal">
+				<i class="mail icon"></i>
+				Postado em <s:date name="#post.data" format="dd/MM/yyyy"/> às <s:date name="#post.data" format="hh:mm"/>
+			</div>
+			
+			<div class="ui vertical tiny animated button red right floated" tabindex="0">
+				<div class="hidden content">Remover</div>
+				<div class="visible content">
+				  <i class="remove icon"></i>
+				</div>
+			</div>
+			<div class="ui vertical tiny animated button green right floated" tabindex="0">
+				<div class="hidden content">Editar</div>
+				<div class="visible content">
+				  <i class="edit icon"></i>
+				</div>
+			</div>
+
+			<br />
 			<h1>${post.categoria.nome}</h1>
 			<p>${post.texto}</p>
 		</div>
@@ -71,7 +90,27 @@
 					</div>
 				</div>
 			</div>
-			<div class="thirteen wide column">
+			<div class="thirteen wide column">		
+				<div class="ui label right floated teal">
+					<i class="mail icon"></i>
+					Postado em <s:date name="#coment.data" format="dd/MM/yyyy"/> às <s:date name="#coment.data" format="hh:mm"/>
+				</div>
+				
+				<div class="ui vertical tiny animated button red right floated" tabindex="0">
+					<div class="hidden content">Remover</div>
+					<div class="visible content">
+					  <i class="remove icon"></i>
+					</div>
+				</div>
+				
+				<div class="ui vertical tiny animated button green right floated" tabindex="0">
+					<div class="hidden content">Editar</div>
+					<div class="visible content">
+					  <i class="edit icon"></i>
+					</div>
+				</div>
+				
+	      		<a class="ui teal right ribbon label">Reviews</a>
 				<p>${coment.texto}</p>
 			</div>
 		</div>

@@ -32,7 +32,7 @@ public class ComentarioPostDAO {
 	public List<ComentarioPost> getComentarioPost(int id){
 		Session conSession = Banco.getConexao();
 		try {
-			String hql = "FROM ComentarioPost AS coment WHERE coment.post.id = ?";
+			String hql = "FROM ComentarioPost AS coment WHERE coment.post.id = ? ORDER BY coment.data ASC";
 			Query query = conSession.createQuery(hql);
 			query.setParameter(0, id);
 			@SuppressWarnings("unchecked")

@@ -1,5 +1,7 @@
 package com.mediacaovirtual.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -8,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "comentario_post")
@@ -19,6 +23,9 @@ public class ComentarioPost {
 	
 	@Column(columnDefinition = "TEXT")
 	private String texto;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date data = new Date();
 	
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_dono"))
@@ -39,6 +46,12 @@ public class ComentarioPost {
 	}
 	public void setTexto(String texto) {
 		this.texto = texto;
+	}
+	public Date getData() {
+		return data;
+	}
+	public void setData(Date data) {
+		this.data = data;
 	}
 	public Usuario getDono() {
 		return dono;
