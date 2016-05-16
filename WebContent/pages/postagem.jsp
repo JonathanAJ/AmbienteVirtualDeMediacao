@@ -16,7 +16,7 @@
 			<div class="ui link fluid cards">
 				  <div class="card">
 				    <div class="image">
-						<img src="../img/person.jpg">
+						<img src="${post.dono.pessoa.imagem}">
 				    </div>
 					<div class="content">
 						<strong>
@@ -90,7 +90,7 @@
 				<div class="ui link fluid cards">
 					<div class="card">
 						<div class="image">
-							<img src="../img/person.jpg">
+							<img src="${coment.dono.pessoa.imagem}">
 						</div>
 						<div class="content">
 							<strong>

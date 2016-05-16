@@ -20,5 +20,6 @@
 		<mapping class="com.mediacaovirtual.model.ComentarioPost" />
 		<mapping class="com.mediacaovirtual.model.Nucleo" />
 		<mapping class="com.mediacaovirtual.model.Bairro" />
+		<mapping class="com.mediacaovirtual.model.Pessoa" />
 	</session-factory>
 </hibernate-configuration>

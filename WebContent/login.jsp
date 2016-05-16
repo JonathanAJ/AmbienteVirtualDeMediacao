@@ -39,7 +39,7 @@
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="user icon"></i>
-		            <s:textfield name="usuario.cpfLogin" placeholder="CPF" required="true"/>
+		            <s:textfield class="cpf" name="usuario.cpfLogin" placeholder="CPF" required="true"/>
 		          </div>
 		        </div>
 		        <div class="field">
@@ -74,7 +74,7 @@
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="user icon"></i>
-		            <s:textfield name="usuario.cpfLogin" placeholder="Insira seu CPF" required="true"/>
+		            <s:textfield class="cpf" name="usuario.cpfLogin" placeholder="Insira seu CPF" required="true"/>
 		          </div>
 		        </div>
 		        <div class="field">
@@ -130,16 +130,25 @@
 				<p class="text">Insira sua Senha</p>
 			</div>
 		</c:if>
-		<c:if test='${param.erro == "padrao"}'>
+		<c:if test='${param.erro == "cadastro"}'>
 		    <div id="mensagem-auth" class="ui error message transition">
 				<i class="close icon"></i>
 				<div class="header">Erro no Cadastro!</div>
 				<p class="text">O CPF já está cadastrado.</p>
 			</div>
 		</c:if>
+		<c:if test='${param.erro == "login"}'>
+		    <div id="mensagem-auth" class="ui error message transition">
+				<i class="close icon"></i>
+				<div class="header">Erro no Login!</div>
+				<p class="text">Confira suas credenciais.</p>
+			</div>
+		</c:if>
 	    
 	</div>
 	<script src="js/jquery-2.2.1.min.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<script src="js/maskedScript.js"></script>
 	<script src="js/semantic.min.js"></script>
 	<script src="js/myScript.js"></script>
 </body>

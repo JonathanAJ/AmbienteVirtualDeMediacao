@@ -62,7 +62,7 @@
 				<div class="ui items">
 					<div class="item">
 						<div class="" style="margin-right: 15px;">
-							<img src="../img/person.jpg" width="100">
+							<img src="${post.dono.pessoa.imagem}" width="100">
 						</div>
 						<div class="middle aligned content">
 							<div class="header">
@@ -124,7 +124,7 @@
 					<div class="ui items">
 						<div class="item">
 							<div class="" style="margin-right: 15px;">
-								<img src="../img/person.jpg" width="100">
+								<img src="${post.dono.pessoa.imagem}" width="100">
 							</div>
 							<div class="middle aligned content">
 								<div class="header">
@@ -160,5 +160,45 @@
 		</s:else>
 	</s:else>
 </div>
+
+<!-- MODAL -->
+
+<div class="ui basic modal">
+	<i class="close icon"></i>
+	<div class="header">
+		  Mudar imagem do perfil
+	</div>
+	<div class="content centered">
+		<div class="sixteen wide collum">
+			<div id="imagem-crop"></div>
+			
+			<div class="ui centered grid">
+				<div class="six wide column fluid">
+				    <label for="upload" class="ui icon button fluid">
+				        <i class="file icon"></i>
+				        Abrir imagem
+				    </label>
+					<input id="upload" type="file" accept="image/*" name="" style="display:none"/>		
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="actions">
+		<div class="two fluid ui buttons">
+		    <div id="cancelar-modal" class="ui red basic button">
+		      <i class="remove icon"></i>
+		      Cancelar
+		    </div>
+		    <div id="bt-crop-imagem" class="ui green basic button">
+		    	<i class="checkmark icon"></i>
+		    	Salvar
+		  	</div>
+	  	</div>
+	</div>
+</div>
+
+
 <jsp:include page="includes/footer.jsp" />
+<script src="../js/croppie.min.js"></script>
+<script src="../js/cropScript.js"></script>
 <jsp:include page="includes/end.jsp" />

@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	iniciaConfigSemantic();
 	mudaAutenticacao();
+	abreModalPerfil();
 });
 
 function mudaAutenticacao(){
@@ -38,3 +39,15 @@ function iniciaConfigSemantic(){
 	    ;
 	  });
 }
+
+function abreModalPerfil(){
+	$("#perfil-imagem").click(function(e){
+		e.preventDefault();
+		$('.ui.basic.modal').modal('show');
+	});
+	
+	$("#cancelar-modal").click(function(){
+		$('.ui.basic.modal').modal('hide');
+	});
+}
+

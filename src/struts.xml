@@ -13,7 +13,7 @@
   	
     <action name="logarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="logar">
     	<result name="sucesso" type="redirect">/pages/index.jsp</result>
-    	<result name="erro">/login.jsp</result>
+    	<result name="erro">/login.jsp?erro=login</result>
     </action>
     
     <action name="cadastrarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="cadastrar">
@@ -22,12 +22,28 @@
     	<result name="erro_nome">/login.jsp?erro=nome</result>
     	<result name="erro_cpf">/login.jsp?erro=cpf</result>
     	<result name="erro_senha">/login.jsp?erro=senha</result>
-    	<result name="erro">/login.jsp?erro=padrao</result>
+    	<result name="erro">/login.jsp?erro=cadastro</result>
     </action>
     
     <action name="logoutLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="logout">
     	<result name="sucesso">/login.jsp</result>
     </action>
+  </package>
+  
+  <!-- Actions de Pessoas -->
+  <package name="pessoas" extends="struts-default" namespace="/pages">
+    
+    <action name="cadastrarPessoaAction" class="com.mediacaovirtual.controller.PessoaAction" method="cadastrar">
+    	<result name="sucesso" type="redirect">/pages/config.jsp?cadastro=true</result>
+    	<result name="erro_bairro">/pages/config.jsp?erro=bairro</result>
+    	<result name="erro">/pages/config.jsp?erro=padrao</result>
+    </action>
+    
+    <action name="mudarImagemAction" class="com.mediacaovirtual.controller.PessoaAction" method="mudarImagem">
+    	<result name="sucesso" type="redirect">/pages/config.jsp?imagem=true</result>
+    	<result name="erro">/pages/config.jsp?erro=padrao</result>
+    </action>
+    
   </package>
   
   <!-- Actions de Postagens -->
@@ -46,10 +62,6 @@
     	<result name="erro_comentario" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;erro=comentario#comentario</result>
     </action>
     
-    <action name="buscarPostAction" class="com.mediacaovirtual.controller.PostAction" method="buscar">
-    	<result name="sucesso" type="redirect">/pages/index.jsp?sucesso=busca</result>
-    	<result name="erro" type="redirect">/pages/index.jsp?erro=padrao</result>
-    </action>
   </package>
   
 </struts>

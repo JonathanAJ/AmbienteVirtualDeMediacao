@@ -1,6 +1,5 @@
 package com.mediacaovirtual.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import com.mediacaovirtual.dao.ComentarioPostDAO;
@@ -65,11 +64,6 @@ public class PostAction extends ActionSupport{
 				return "erro";
 			}
 		}
-	}
-	
-	public String buscar(){
-		
-		return "";
 	}
 	
 }

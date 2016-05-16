@@ -5,6 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>Ambiente Virtual de Mediação e Conciliação</title>
+	<link rel="stylesheet" type="text/css" href="../css/croppie.css" />
 	<link rel="stylesheet" type="text/css" href="../css/semantic.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/myStyle.css">
 </head>
@@ -21,7 +22,7 @@
 					<i class="sidebar icon"></i> <span class="text">Opções</span>
 					<div class="menu">
 						<a class="item" href="index.jsp"><i class="home icon"></i> Início</a>
-						<a class="item" href="#link2"><i class="setting icon"></i> Config</a>
+						<a class="item" href="config.jsp"><i class="setting icon"></i> Config</a>
 						<a class="item" href="../logoutLoginAction">
 							<i class="remove circle outline icon"></i>
 							Logout

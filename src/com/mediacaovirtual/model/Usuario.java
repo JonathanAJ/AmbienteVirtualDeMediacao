@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
 @Entity
 public class Usuario {
 	@Id
@@ -26,6 +27,10 @@ public class Usuario {
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_nucleo"))
 	private Nucleo nucleo;
+	
+	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name = "fk_pessoa"))
+	private Pessoa pessoa;
 	
 	public int getId() {
 		return id;
@@ -57,4 +62,11 @@ public class Usuario {
 	public void setNucleo(Nucleo nucleo) {
 		this.nucleo = nucleo;
 	}
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	
 }

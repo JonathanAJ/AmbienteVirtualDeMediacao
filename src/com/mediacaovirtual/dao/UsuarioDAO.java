@@ -9,20 +9,30 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.mediacaovirtual.controller.Banco;
+import com.mediacaovirtual.model.Pessoa;
 import com.mediacaovirtual.model.Usuario;
 
 public class UsuarioDAO {
 	
 	public boolean createUsuario(Usuario usuario){
+		PessoaDAO pessoaDAO = new PessoaDAO();
 		Session conSession = Banco.getConexao();
 		try{
 			Usuario usuarioTmp = getUsuario(usuario.getCpfLogin());
-			if(usuarioTmp == null){
+			if(usuarioTmp == null) {
+				Pessoa pessoa = pessoaDAO.getPessoaCriada();
 				conSession = Banco.getConexao();
-				Transaction tx = conSession.beginTransaction();
-				conSession.save(usuario);
-				tx.commit();
-				return true;
+				if(pessoa != null) {
+					usuario.setPessoa(pessoa);
+					Transaction tx = conSession.beginTransaction();
+					conSession.save(usuario);
+					tx.commit();
+					return true;
+					
+				}else{
+					return false;
+				
+				}
 			}else{
 				return false;
 			}

@@ -4,8 +4,8 @@
 			<div class="ui grid menu-esquerdo">
 				<div class="ui row menu-perfil">
 					<div class="column">
-						<a href="index.jsp">
-							<img class="ui medium image centered" src="../img/person.jpg">
+						<a id="perfil-imagem" href="#">
+							<img class="ui medium image centered" src="${session.usuario.pessoa.imagem}">
 						</a>
 						<div class="ui huge star rating mg-tp-5" data-rating="5"
 							data-max-rating="5"></div>
@@ -58,10 +58,11 @@
 				<div class="row">
 					<div class="sixteen wide column mg-tp-30">
 						<h2>
-							<s:property value="#session.usuario.nome" />
+							${session.usuario.nome}
 						</h2>
 						<p class="mg-tp-15-menos">
-							<s:property value="#session.usuario.nucleo.nome" /><i class='icon user teal'></i>
+							${session.usuario.nucleo.nome}
+							<i class='icon user teal'></i>
 						</p>
 					</div>
 				</div>
