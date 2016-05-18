@@ -4,9 +4,9 @@
 			<div class="ui grid menu-esquerdo">
 				<div class="ui row menu-perfil">
 					<div class="column">
-						<a id="perfil-imagem" href="#">
-							<img class="ui medium image centered" src="${session.usuario.pessoa.imagem}">
-						</a>
+						<div id="perfil-imagem">
+							<img class="ui medium image centered meupopup" src="${session.usuario.pessoa.imagem}" data-content="Trocar foto do perfil.">
+						</div>
 						<div class="ui huge star rating mg-tp-5" data-rating="5"
 							data-max-rating="5"></div>
 						<div class="ui small gray label mg-tp-5">

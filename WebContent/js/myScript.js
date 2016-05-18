@@ -38,6 +38,10 @@ function iniciaConfigSemantic(){
 	      .transition('fade')
 	    ;
 	  });
+	//popup
+	$('.meupopup').popup({
+	    position : 'top center'
+	});
 }
 
 function abreModalPerfil(){

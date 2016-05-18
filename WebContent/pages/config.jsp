@@ -84,26 +84,9 @@
 		</s:form>
 	</div>
 	
-	<div class="sixteen wide column">	
-		<form class="ui form">
-			<h4 class="ui dividing header">Aparência</h4>
-			<div class="field">
-				<label>Imagem do Perfil:</label>
-				<input id="upload" type="file" accept="image/*" name="">
-			</div>
-		</form>
-	</div>
-	
-</div>
-
-<div class="row">
-	<div id="imagem-crop"></div>
-	<div id="bt-crop-imagem" class="ui button">CROP</div>
 </div>
 
 <jsp:include page="includes/footer.jsp" />
 <script src="../js/jquery.maskedinput.min.js"></script>
 <script src="../js/maskedScript.js"></script>
-<script src="../js/croppie.min.js"></script>
-<script src="../js/cropScript.js"></script>
 <jsp:include page="includes/end.jsp" />

@@ -31,7 +31,7 @@
 				</div>
 				
 				<a href="index.jsp">
-					<img class="ui centered image logo-acao" src="../img/logo.png">		
+					<img class="ui centered image logo-acao" src="../img/logo.png">
 				</a>
 			</div>
 		</div>

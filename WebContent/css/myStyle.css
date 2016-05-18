@@ -64,6 +64,10 @@ blockquote {
 	z-index: 99;
 }
 
+#perfil-imagem{
+	cursor: pointer;
+}
+
 .bg-logo{
 	margin: -55px auto 0 auto;
 	padding-top: 4px;

@@ -58,10 +58,13 @@ function salvaImagemAjax(image){
 	  url: "mudarImagemAction",
 	  method: "POST",
 	  data: { "pessoa.imagem" : image },
-	  dataType: "image"
-	
+	  beforeSend: function(){
+		hiddenContent();
+		  
+	  }
 	}).done(function( msg ) {
-		console.log("OK " + msg);
+		console.log("OK");
+		location.reload();
 	
 	}).fail(function( jqXHR, textStatus ) {
 		console.log("Request failed: " + jqXHR );
@@ -69,6 +72,11 @@ function salvaImagemAjax(image){
 	});
 }
 
+function hiddenContent(){
+	$("#content-acoes-image").css('display', 'none');
+	$("#bt-acoes-image").css('display', 'none');
+	$("#load").removeClass('hidden');
+}
 
 
 
