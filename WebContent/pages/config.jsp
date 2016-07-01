@@ -82,6 +82,30 @@
 				<s:submit class="ui green right floated button" value="Salvar" />
 			</div>
 		</s:form>
+		<br/>
+		<br/>
+		<h4 class="ui dividing header">Relatórios do Sistema</h4>
+		
+			<s:form action="/pages/downloadRelatorio" method="post" class="ui form">
+				<div class="field">
+					<s:hidden name="tipo" value="Geral"/>
+					<s:submit class="ui fluid blue button" value="Relatório Geral"/>
+				</div>
+			</s:form>
+			<br/>	
+			<s:form action="/pages/downloadRelatorio" method="post" class="ui form">
+				<div class="field">
+					<s:hidden name="tipo" value="Nucleo"/>
+		  			<s:submit class="ui fluid blue button" value="Relatório do Núcleo"/>
+				</div>
+			</s:form>
+			<br/>
+			<s:form action="/pages/downloadRelatorio" method="post" class="ui form">
+				<div class="field">
+					<s:hidden name="tipo" value="Pessoal"/>
+		  			<s:submit class="ui fluid blue button" value="Relatório Pessoal"/>
+				</div>
+			</s:form>
 	</div>
 	
 </div>

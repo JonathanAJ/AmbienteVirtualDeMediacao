@@ -64,4 +64,17 @@
     
   </package>
   
+  <!-- Actions de Relatórios -->
+  <package name="relatorios" extends="struts-default" namespace="/pages">
+    
+    <action name="downloadRelatorio" class="com.mediacaovirtual.controller.RelatorioAction" method="download">
+		<result name="sucesso" type="stream">
+			<param name="contentType">application/pdf</param>
+			<param name="inputName">inputStream</param>
+			<param name="contentDisposition">contentDisposition</param>
+		</result>
+    </action>
+    
+  </package>
+  
 </struts>
