@@ -35,7 +35,7 @@
 		    
 		    <!-- Login -->
 		    
-			<s:form action="logarLoginAction" class="ui large form content1">
+			<s:form action="logarLoginAction" method="POST" class="ui large form content1">
 		        <div class="field">
 		          <div class="ui left icon input">
 		            <i class="user icon"></i>
@@ -53,7 +53,7 @@
 		    
 		    <!-- Cadastro -->
 		    
-			<s:form action="cadastrarLoginAction" class="ui large form content2">
+			<s:form action="cadastrarLoginAction" method="POST" class="ui large form content2">
 				<div class="field">
 					<select id="" class="ui fluid action-show dropdown" name="usuario.nucleo.id">
 				    	<option value="">Selecione seu Núcleo...</option>
