@@ -6,7 +6,7 @@
 <struts>
   <constant name="struts.devMode" value="true" />
   <constant name="struts.ui.theme" value="simple" />
-  <constant name="struts.action.excludePattern" value="/webs/*" />
+  <constant name="struts.action.excludePattern" value="/webs/[a-zA-Z_0-9]*/?[a-zA-Z_0-9]*/?[a-zA-Z_0-9]*/?[a-zA-Z_0-9]*/?[a-zA-Z_0-9]*/?[a-zA-Z_0-9]*" />
   
   <!-- Actions de Login -->
   <package name="login" extends="struts-default">

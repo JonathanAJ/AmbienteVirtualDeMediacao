@@ -1,23 +1,18 @@
 package com.mediacaovirtual.webservice;
 
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-
-import java.util.Iterator;
-import java.util.List;
-
-import javax.ws.rs.DELETE;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import com.mediacaovirtual.dao.UsuarioDAO;
+import com.mediacaovirtual.model.Nucleo;
+import com.mediacaovirtual.model.Usuario;
 
-@Path("loginservice")
+@Path("/loginservice")
 public class LoginService {
 	
-	UsuarioDAO dao = new UsuarioDAO();
+	UsuarioDAO usuarioDao = new UsuarioDAO();
 //	
 //	@POST
 //	@Produces("text/xml")
@@ -32,19 +27,42 @@ public class LoginService {
 //		}
 //	}
 //
-//	@POST
-//	@Produces("text/xml")
-//	@Path("cadastrar/{cpf}/{senha}/{nome}")
-//	public String cadastrar(@PathParam("cpf") String cpfLogin,
-//							@PathParam("senha") String senha,
-//							@PathParam("senha") String nome){
-//		boolean cadastro = dao.createUsuario(cpfLogin, senha, nome);
-//		if(cadastro){
-//			return "<msg>sucesso</msg>";
-//		}else{
-//			return "<msg>erro</msg>";
-//		}
-//	}
+	@POST
+	@Produces("text/xml")
+	@Path("/cadastrar/{nucleo_id}/{nome}/{cpf}/{senha}")
+	public String cadastrar(
+							@PathParam("nucleo_id") int nucleoId,
+							@PathParam("nome") String nome,
+							@PathParam("cpf") String cpfLogin,
+							@PathParam("senha") String senha){
+		
+		Usuario usuario = new Usuario();
+		usuario.setNucleo(new Nucleo(nucleoId));
+		usuario.setNome(nome);
+		usuario.setCpfLogin(cpfLogin);
+		usuario.setSenha(senha);
+		
+		if(usuario.getNucleo().getId() == 0){
+			return "<msg>erro_nucleo</msg>";
+			
+		}else if(usuario.getNome().isEmpty() || usuario.getNome() == null){
+			return "<msg>erro_nome</msg>";
+			
+		}else if(usuario.getCpfLogin().isEmpty() || usuario.getCpfLogin() == null){
+			return "<msg>erro_cpf</msg>";
+			
+		}else if(usuario.getSenha().isEmpty() || usuario.getSenha() == null){
+			return "<msg>erro_senha</msg>";
+			
+		}else{
+			boolean cadastro = usuarioDao.createUsuario(usuario);
+			if(cadastro){
+				return "<msg>sucesso</msg>";
+			}else{
+				return "<msg>erro_existe</msg>";
+			}	
+		}
+	}
 //
 //	@DELETE
 //	@Produces("text/xml")

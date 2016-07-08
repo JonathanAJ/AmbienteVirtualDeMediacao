@@ -11,6 +11,13 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Nucleo {
 	
+	public Nucleo() {
+	
+	}
+	public Nucleo(int id) {
+		super();
+		this.id = id;
+	}
 	@Id
 	@GeneratedValue
 	private int id;
