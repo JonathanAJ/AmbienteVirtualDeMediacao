@@ -60,6 +60,12 @@
     	<result name="erro_texto">/pages/post.jsp?post=true&amp;erro=texto</result>
     </action>
     
+    <action name="deletarPostAction" class="com.mediacaovirtual.controller.PostAction" method="deletarPost">
+    	<result name="sucesso" type="redirect">/pages/index.jsp?delete=true</result>
+    	<result name="erro" type="redirect">/pages/index.jsp?delete_erro=true</result>
+    	<result name="erro_404" type="redirect">/pages/index.jsp?delete_erro404=true</result>
+    </action>
+    
     <action name="comentarPostAction" class="com.mediacaovirtual.controller.PostAction" method="comentar">
     	<result name="sucesso" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;sucesso=comentario</result>
     	<result name="erro" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;erro=padrao</result>

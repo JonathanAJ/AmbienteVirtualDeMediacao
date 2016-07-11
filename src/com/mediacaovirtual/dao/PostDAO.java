@@ -30,6 +30,60 @@ public class PostDAO {
 		}
 	}
 	
+	public boolean deletePost(int idPost){
+		Session conSession = Banco.getConexao();
+		try {
+			String hql = "DELETE FROM ComentarioPost AS cp WHERE cp.post.id = ?";
+			Query query = conSession.createQuery(hql);
+			query.setParameter(0, idPost);
+			query.executeUpdate();
+			
+			hql = "DELETE FROM Post AS p WHERE p.id = ?";
+			query = conSession.createQuery(hql);
+			query.setParameter(0, idPost);
+			query.executeUpdate();
+			return true;
+			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+			
+		} finally {
+			conSession.close();
+		}
+	}
+	
+	public boolean verificaPost(int idPost, int idUsuario){
+		Session conSession = Banco.getConexao();
+		try {
+			String hql =  "FROM " + 
+						    "Post AS p, " +
+						    "Usuario AS u " +
+						  "WHERE " +
+						    "p.dono.id = u.id AND " +
+						    "p.id = ? AND " +
+						    "u.id = ?";
+			
+			Query query = conSession.createQuery(hql);
+			query.setParameter(0, idPost);
+			query.setParameter(1, idUsuario);
+			if(query.uniqueResult() == null){
+				return false;
+			}
+			else{
+				return true;
+			}
+			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+			
+		} finally {
+			conSession.close();
+		}
+		
+	}
+	
 	public Post getPost(int id){
 		Session conSession = Banco.getConexao();
 		try {

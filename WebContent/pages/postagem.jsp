@@ -42,20 +42,14 @@
 			</div>
 				
 			<s:if test="%{#post.dono.id == #session.usuario.id}">
-			
-				<div class="ui vertical tiny animated button red right floated" tabindex="0">
-					<div class="hidden content">Remover</div>
-					<div class="visible content">
-					  <i class="remove icon"></i>
-					</div>
-				</div>
 				
-				<div class="ui vertical tiny animated button green right floated" tabindex="0">
-					<div class="hidden content">Editar</div>
-					<div class="visible content">
-					  <i class="edit icon"></i>
-					</div>
-				</div>
+				<s:a href="deletarPostAction?post.id=%{#post.id}" class="ui vertical tiny circular icon button red right floated">
+				  <i class="icon remove"></i>
+				</s:a>
+			
+				<s:a href="#" class="ui vertical tiny circular icon button green right floated">
+				  <i class="icon edit"></i>
+				</s:a>
 			
 			</s:if>
 
@@ -117,19 +111,13 @@
 				
 				<s:if test="%{#coment.dono.id == #session.usuario.id}">
 					
-					<div class="ui vertical tiny animated button red right floated" tabindex="0">
-						<div class="hidden content">Remover</div>
-						<div class="visible content">
-						  <i class="remove icon"></i>
-						</div>
-					</div>
-					
-					<div class="ui vertical tiny animated button green right floated" tabindex="0">
-						<div class="hidden content">Editar</div>
-						<div class="visible content">
-						  <i class="edit icon"></i>
-						</div>
-					</div>
+					<s:a href="#" class="ui vertical tiny circular icon button red right floated">
+					  <i class="icon remove"></i>
+					</s:a>
+				
+					<s:a href="#" class="ui vertical tiny circular icon button green right floated">
+					  <i class="icon edit"></i>
+					</s:a>
 					
 				</s:if>
 				

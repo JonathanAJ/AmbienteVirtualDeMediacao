@@ -12,6 +12,20 @@
 				<p class="text">Seu post está disponível, veja abaixo!</p>
 			</div>
         </c:if>
+        <c:if test='${param.delete_erro404 == true}'>
+		    <div id="mensagem-auth" class="ui error message transition">
+				<i class="close icon"></i>
+				<div class="header">Erro!</div>
+				<p class="text">Post não encontrado!</p>
+			</div>
+        </c:if>
+        <c:if test='${param.delete == true}'>
+		    <div id="mensagem-auth" class="ui success message transition">
+				<i class="close icon"></i>
+				<div class="header">Sucesso!</div>
+				<p class="text">Seu post foi deletado!</p>
+			</div>
+        </c:if>
 		<div class="ui form">
 			<s:form action="index.jsp" method="GET">
 				<div class="ui action input fluid">	

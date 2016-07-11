@@ -50,6 +50,25 @@ public class PostAction extends ActionSupport{
 		}
 	}
 	
+	public String deletarPost(){
+		// validações
+		Map<String, Object> session = ActionContext.getContext().getSession();
+		post.setDono((Usuario) session.get("usuario"));
+		
+		int postId = getPost().getId();
+		int usuarioId = getPost().getDono().getId();
+		
+		if(postDAO.verificaPost(postId, usuarioId)){
+			if(postDAO.deletePost(postId)){
+				return "sucesso";
+			}else{
+				return "erro";
+			}
+		}else{
+			return "erro_404";
+		}
+	}
+	
 	public String comentar(){
 		// validações
 		if(comentario.getTexto().isEmpty() || comentario.getTexto() == null){
