@@ -15,16 +15,16 @@
   	
     <action name="logarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="logar">
     	<result name="sucesso" type="redirect">/pages/index.jsp</result>
-    	<result name="erro">/login.jsp?erro=login</result>
+    	<result name="erro" type="redirect">/login.jsp?erro=login</result>
     </action>
     
     <action name="cadastrarLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="cadastrar">
-    	<result name="sucesso">/login.jsp?sucesso=cadastro</result>
-    	<result name="erro_nucleo">/login.jsp?erro=nucleo</result>
-    	<result name="erro_nome">/login.jsp?erro=nome</result>
-    	<result name="erro_cpf">/login.jsp?erro=cpf</result>
-    	<result name="erro_senha">/login.jsp?erro=senha</result>
-    	<result name="erro">/login.jsp?erro=cadastro</result>
+    	<result name="sucesso" type="redirect">/login.jsp?sucesso=cadastro</result>
+    	<result name="erro_nucleo" type="redirect">/login.jsp?erro=nucleo</result>
+    	<result name="erro_nome" type="redirect">/login.jsp?erro=nome</result>
+    	<result name="erro_cpf" type="redirect">/login.jsp?erro=cpf</result>
+    	<result name="erro_senha" type="redirect">/login.jsp?erro=senha</result>
+    	<result name="erro" type="redirect">/login.jsp?erro=cadastro</result>
     </action>
     
     <action name="logoutLoginAction" class="com.mediacaovirtual.controller.LoginAction" method="logout">
@@ -66,9 +66,15 @@
     	<result name="erro_404" type="redirect">/pages/index.jsp?delete_erro404=true</result>
     </action>
     
+    <action name="deletarComentarioPostAction" class="com.mediacaovirtual.controller.PostAction" method="deletarComentario">
+    	<result name="sucesso" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;delete_coment=true#titulo-comentario</result>
+    	<result name="erro" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;erro=padrao#titulo-comentario</result>
+    	<result name="erro_404" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;delete_coment_erro404=true#titulo-comentario</result>
+    </action>
+    
     <action name="comentarPostAction" class="com.mediacaovirtual.controller.PostAction" method="comentar">
-    	<result name="sucesso" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;sucesso=comentario</result>
-    	<result name="erro" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;erro=padrao</result>
+    	<result name="sucesso" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;sucesso=comentario#titulo-comentario</result>
+    	<result name="erro" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;erro=padrao#titulo-comentario</result>
     	<result name="erro_comentario" type="redirect">/pages/postagem.jsp?id=${post.id}&amp;erro=comentario#comentario</result>
     </action>
     

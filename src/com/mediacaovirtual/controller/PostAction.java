@@ -69,6 +69,25 @@ public class PostAction extends ActionSupport{
 		}
 	}
 	
+	public String deletarComentario(){
+		// validações
+		Map<String, Object> session = ActionContext.getContext().getSession();
+		post.setDono((Usuario) session.get("usuario"));
+		
+		int comentarioId = getComentario().getId();
+		int usuarioId = getPost().getDono().getId();
+		
+		if(comentarioDAO.verificaComentario(comentarioId, usuarioId)){
+			if(comentarioDAO.deleteComentario(comentarioId)){
+				return "sucesso";
+			}else{
+				return "erro";
+			}
+		}else{
+			return "erro_404";
+		}
+	}
+	
 	public String comentar(){
 		// validações
 		if(comentario.getTexto().isEmpty() || comentario.getTexto() == null){

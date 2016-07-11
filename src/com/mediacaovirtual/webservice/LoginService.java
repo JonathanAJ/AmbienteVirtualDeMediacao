@@ -27,6 +27,11 @@ public class LoginService {
 //		}
 //	}
 //
+	/**
+	 * Pode ser testado com curl:
+	 * curl -v -X POST http://localhost:8080/AmbienteVirtualDeMediacao/webs/loginservice/cadastrar/
+	 */
+	
 	@POST
 	@Produces("text/xml")
 	@Path("/cadastrar/{nucleo_id}/{nome}/{cpf}/{senha}")
@@ -43,23 +48,23 @@ public class LoginService {
 		usuario.setSenha(senha);
 		
 		if(usuario.getNucleo().getId() == 0){
-			return "<msg>erro_nucleo</msg>";
+			return "<msg>erro_nucleo</msg>\n";
 			
 		}else if(usuario.getNome().isEmpty() || usuario.getNome() == null){
-			return "<msg>erro_nome</msg>";
+			return "<msg>erro_nome</msg>\n";
 			
 		}else if(usuario.getCpfLogin().isEmpty() || usuario.getCpfLogin() == null){
-			return "<msg>erro_cpf</msg>";
+			return "<msg>erro_cpf</msg>\n";
 			
 		}else if(usuario.getSenha().isEmpty() || usuario.getSenha() == null){
-			return "<msg>erro_senha</msg>";
+			return "<msg>erro_senha</msg>\n";
 			
 		}else{
 			boolean cadastro = usuarioDao.createUsuario(usuario);
 			if(cadastro){
-				return "<msg>sucesso</msg>";
+				return "<msg>sucesso</msg>\n";
 			}else{
-				return "<msg>erro_existe</msg>";
+				return "<msg>erro_existe</msg>\n";
 			}	
 		}
 	}

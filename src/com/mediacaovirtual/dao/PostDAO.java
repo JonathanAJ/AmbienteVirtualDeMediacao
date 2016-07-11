@@ -81,7 +81,6 @@ public class PostDAO {
 		} finally {
 			conSession.close();
 		}
-		
 	}
 	
 	public Post getPost(int id){

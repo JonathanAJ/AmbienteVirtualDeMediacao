@@ -29,6 +29,54 @@ public class ComentarioPostDAO {
 		}
 	}
 	
+	public boolean deleteComentario(int idComentario){
+		Session conSession = Banco.getConexao();
+		try {
+			String hql = "DELETE FROM ComentarioPost AS cp WHERE cp.id = ?";
+			Query query = conSession.createQuery(hql);
+			query.setParameter(0, idComentario);
+			query.executeUpdate();
+			return true;
+			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+			
+		} finally {
+			conSession.close();
+		}
+	}
+	
+	public boolean verificaComentario(int idComentario, int idUsuario){
+		Session conSession = Banco.getConexao();
+		try {
+			String hql =  "FROM " + 
+						    "ComentarioPost AS cp, " +
+						    "Usuario AS u " +
+						  "WHERE " +
+						    "cp.dono.id = u.id AND " +
+						    "cp.id = ? AND " +
+						    "u.id = ?";
+			
+			Query query = conSession.createQuery(hql);
+			query.setParameter(0, idComentario);
+			query.setParameter(1, idUsuario);
+			if(query.uniqueResult() == null){
+				return false;
+			}
+			else{
+				return true;
+			}
+			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+			
+		} finally {
+			conSession.close();
+		}
+	}
+	
 	public List<ComentarioPost> getComentarioPost(int id){
 		Session conSession = Banco.getConexao();
 		try {

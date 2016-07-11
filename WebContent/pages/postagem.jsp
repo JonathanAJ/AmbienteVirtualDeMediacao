@@ -60,10 +60,32 @@
 	</s:iterator>
 </div>
 
-<h4 class="ui horizontal divider header cc-blue-dark" style="color: #3AA593 !important;">
+<h4 id="titulo-comentario" class="ui horizontal divider header cc-blue-dark" style="color: #3AA593 !important;">
   <i class="comments icon"></i>
   Comentários
 </h4>
+
+<c:if test='${param.delete_coment == true}'>
+	<div id="mensagem-auth" class="ui success message transition sixteen wide column">
+		<i class="close icon"></i>
+		<div class="header">Sucesso!</div>
+		<p class="text">Seu comentário foi deletado!</p>
+	</div>
+</c:if>
+<c:if test='${param.sucesso == "comentario"}'>
+	<div id="mensagem-auth" class="ui success message transition sixteen wide column">
+		<i class="close icon"></i>
+		<div class="header">Sucesso!</div>
+		<p class="text">O post foi comentado!</p>
+	</div>
+</c:if>
+<c:if test='${param.delete_coment_erro404 == true}'>
+	<div id="mensagem-auth" class="ui error message transition sixteen wide column">
+		<i class="close icon"></i>
+		<div class="header">Erro!</div>
+		<p class="text">Comentário não encontrado!</p>
+	</div>
+</c:if>
 
 <s:bean name="com.mediacaovirtual.dao.ComentarioPostDAO" var="comentDAO" />
 <s:set var="myVar" value="#comentDAO.getComentarioPost(#parameters['id'])"/>
@@ -111,7 +133,7 @@
 				
 				<s:if test="%{#coment.dono.id == #session.usuario.id}">
 					
-					<s:a href="#" class="ui vertical tiny circular icon button red right floated">
+					<s:a href="deletarComentarioPostAction?comentario.id=%{#coment.id}&post.id=%{#parameters['id']}" class="ui vertical tiny circular icon button red right floated">
 					  <i class="icon remove"></i>
 					</s:a>
 				
@@ -140,6 +162,7 @@
 		</s:form>
 	</div>
 </div>
+
 <jsp:include page="includes/footer.jsp" />
 <script src="../tinymce/tinymce.min.js"></script>
 <script src="../js/tinyScript.js"></script>

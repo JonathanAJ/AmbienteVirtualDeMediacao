@@ -22,6 +22,10 @@ public class LoginAction extends ActionSupport{
 	}
 
 	public String logar(){
+
+		usuario.setCpfLogin(usuario.getCpfLogin().replace(".", ""));
+		usuario.setCpfLogin(usuario.getCpfLogin().replace("-", ""));
+
 		Usuario user = usuarioDao.getUsuario(usuario.getCpfLogin(), usuario.getSenha());
 		if(user == null){
 			return "erro";
@@ -40,6 +44,10 @@ public class LoginAction extends ActionSupport{
 	}
 
 	public String cadastrar(){
+
+		usuario.setCpfLogin(usuario.getCpfLogin().replace(".", ""));
+		usuario.setCpfLogin(usuario.getCpfLogin().replace("-", ""));
+		
 		if(usuario.getNucleo().getId() == 0){
 			return "erro_nucleo";
 			
