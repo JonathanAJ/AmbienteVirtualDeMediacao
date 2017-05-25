@@ -30,9 +30,9 @@ Para utilizar o projeto em seu ambiente de desenvolvimento você irá precisar d
 Você pode pegar o banco de dados inicial apenas fazendo o ***restore*** no arquivo SQL da pasta [sql/](sql/) no postgres. Não se preocupe as outras tabelas são geradas pelo Hibernate <3.
 
 
- - ***Nome do banco: bdMediacaoVirtual***
- - ***Usuário: postgres***
- - ***Senha: 85539328***
+ - ***Nome do banco: SEU_BANCO***
+ - ***Usuário: SEU_USUARIO***
+ - ***Senha: SUA_SENHA***
 
 *Obs¹: Essas configurações podem ser modificadas em:*
 
